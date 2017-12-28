@@ -1,0 +1,27 @@
+{
+  "name": "bootstrap-hardskilled-extend-select",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/select.js",
+  "scripts": {
+    "server": "serve .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path ./scss ./scss/select.scss ./css/select.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardskilled/bootstrap-hardskilled-extend-select.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hardskilled/bootstrap-hardskilled-extend-select/issues"
+  },
+  "homepage": "https://github.com/hardskilled/bootstrap-hardskilled-extend-select#readme",
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.3",
+    "serve": "^6.4.3"
+  }
+}

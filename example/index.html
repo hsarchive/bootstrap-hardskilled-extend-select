@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap extended selects</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style>
+        body {
+            background: #eaeaea;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        .row {
+            background: #fff;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse bg-primary navbar-toggleable-md">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Bootstrap extended selects</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href=https://hardskilled.github.io/bootstrap-hardskilled-extend-select/example">Example</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select">GitHub</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://hardskilled.com">Hardskilled Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.upwork.com/o/companies/_~01b5cde52d5f4ead84/">Hire Us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form role="form">
+                <div class="form-group">
+                    <label for="basic">"Basic" (liveSearch disabled)</label>
+
+                    <select id="basic" class="form-control">
+                        <option>cow</option>
+                        <option data-subtext="option subtext">bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="optgroup subtext">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <form role="form">
+                <div class="form-group">
+                    <label for="basic-live">"Basic" (liveSearch enabled)</label>
+                    <select id="basic-live" class="form-control" data-live-search="true">
+                        <option>cow</option>
+                        <option data-subtext="option subtext">bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="optgroup subtext">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <form role="form">
+                <div class="form-group">
+                    <label for="basic2">"Basic" (multiple, maxOptions=1)</label>
+
+                    <select id="basic2" class="form-control" multiple>
+                        <option>cow</option>
+                        <option>bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="another test">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form role="form">
+                <div class="form-group">
+                    <label for="maxOption2">multiple, show-menu-arrow, maxOptions=2</label>
+
+                    <select id="maxOption2" class="form-control" multiple data-max-options="2">
+                        <option>chicken</option>
+                        <option>turkey</option>
+                        <option disabled>duck</option>
+                        <option>goose</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label class="control-label" for="lunch">Lunch:</label>
+
+                    <select id="lunch" data-live-search="true" title="Please select a lunch ...">
+                        <option>Hot Dog, Fries and a Soda</option>
+                        <option>Burger, Shake and a Smile</option>
+                        <option>Sugar, Spice and all things nice</option>
+                        <option>Baby Back Ribs</option>
+                        <option>A really really long option made to illustrate an issue with the live search in an inline form</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="col-md-4">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="error">error</label>
+
+                    <div class="col-lg-10 error">
+                        <select id="error" class="form-control">
+                            <option>pen</option>
+                            <option>pencil</option>
+                            <option selected>brush</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form role="form">
+                <div class="form-group has-error">
+                    <label class="control-label" for="country">error type 2</label>
+
+                    <select id="country" name="country" class="form-control">
+                        <option>Argentina</option>
+                        <option>United State</option>
+                        <option>Mexico</option>
+                    </select>
+
+                    <p class="help-block">No service available in the selected country</p>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-8">
+            <form role="search">
+                <div class="form-group">
+                    <select multiple data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true">
+                        <optgroup label="filter1">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="filter2">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                        <optgroup label="filter3">
+                            <option>option1</option>
+                            <option>option2</option>
+                            <option>option3</option>
+                            <option>option4</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q">
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <select id="first-disabled" data-hide-disabled="true" data-live-search="true">
+                        <optgroup disabled="disabled" label="disabled">
+                            <option>Hidden</option>
+                        </optgroup>
+                        <optgroup label="Fruit">
+                            <option>Apple</option>
+                            <option>Orange</option>
+                        </optgroup>
+                        <optgroup label="Vegetable">
+                            <option>Corn</option>
+                            <option>Carrot</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-8">
+            <form>
+                <div class="form-group">
+                    <select id="first-disabled2" multiple data-hide-disabled="true" data-size="5">
+                        <option>Apple</option>
+                        <option>Banana</option>
+                        <option>Orange</option>
+                        <option>Pineapple</option>
+                        <option>Apple2</option>
+                        <option>Banana2</option>
+                        <option>Orange2</option>
+                        <option>Pineapple2</option>
+                        <option>Apple2</option>
+                        <option>Banana2</option>
+                        <option>Orange2</option>
+                        <option>Pineapple2</option>
+                    </select>
+                    <button id="special" class="btn btn-default">Hide selected by disabling</button>
+                    <button id="special2" class="btn btn-default">Reset</button>
+                    <p>Just select 1st element, click button and check list again</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-addon">@</span>
+                    <select class="form-control">
+                        <option>One</option>
+                        <option>Two</option>
+                        <option>Three</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <select class="form-control" data-mobile="true">
+                    <option>One</option>
+                    <option>Two</option>
+                    <option>Three</option>
+                </select>
+            </div>
+            <p>With <code>data-mobile="true"</code> option.</p>
+        </div>
+
+
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <select id="done" multiple data-done-button="true">
+                        <option>Apple</option>
+                        <option>Banana</option>
+                        <option>Orange</option>
+                        <option>Pineapple</option>
+                        <option>Apple2</option>
+                        <option>Banana2</option>
+                        <option>Orange2</option>
+                        <option>Pineapple2</option>
+                        <option>Apple2</option>
+                        <option>Banana2</option>
+                        <option>Orange2</option>
+                        <option>Pineapple2</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="tokens">Key words (data-tokens)</label>
+                    <select id="tokens" class="form-control" multiple data-live-search="true">
+                        <option data-tokens="first">I actually am called "one"</option>
+                        <option data-tokens="second">And me "two"</option>
+                        <option data-tokens="last">I am "three"</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="lunchBegins">Lunch (Begins search):</label>
+
+                    <select id="lunchBegins" data-live-search="true" data-live-search-style="begins" title="Please select a lunch ...">
+                        <option>Hot Dog, Fries and a Soda</option>
+                        <option>Burger, Shake and a Smile</option>
+                        <option>Sugar, Spice and all things nice</option>
+                        <option>Baby Back Ribs</option>
+                        <option>A really really long option made to illustrate an issue with the live search in an inline form</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="../css/select.css">
+<script src="../src/select.js"></script>
+<script>
+    jQuery('body').ready(function ($) {
+        $('select').extendSelect();
+    })
+</script>
+</body>
+</html>

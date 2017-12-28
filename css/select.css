@@ -1,0 +1,8 @@
+.select-extended-element {
+  position: relative; }
+  .select-extended-element .dropdown-menu {
+    width: 100%; }
+    .select-extended-element .dropdown-menu .dropdown-title {
+      width: 100%;
+      padding: 3px 1.5rem;
+      font-weight: bold; }
