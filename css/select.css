@@ -9,6 +9,11 @@
     text-overflow: ellipsis; }
   .select-extended-element .dropdown-menu {
     width: 100%; }
+    .select-extended-element .dropdown-menu .select-search {
+      border-radius: 0;
+      border-right: 0;
+      border-left: 0;
+      border-top: 0; }
     .select-extended-element .dropdown-menu .dropdown-item {
       overflow: hidden;
       text-overflow: ellipsis; }

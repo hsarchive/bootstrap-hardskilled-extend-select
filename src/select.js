@@ -1,18 +1,16 @@
 (function ($) {
     const elementContainer = 'select-extended-element';
     const pureElement = 'select-extend';
+    const selectSearch = 'select-search';
 
-    function rendDropdown() {
-        const select = $(this).prev(`.${pureElement}`);
-        const menu = $(this).find('.dropdown-menu');
-
-        $(menu).children().remove();
-
+    function rendDropdown(menu, items) {
+        $(menu).find('.dropdown-header, .dropdown-item').remove();
+        
         const appendItem = (element) => {
             const label = element.innerText;
             const item = $('<a href="#" class="dropdown-item"></a>').text(label);
 
-            item.attr('data-index', $(element).data('index'))
+            item.attr('data-index', $(element).data('index'));
 
             if ($(element).is('option:selected')) {
                 item.addClass('active')
@@ -31,8 +29,13 @@
             menu.append(item)
         };
 
+        const appendNotSownElement = () => {
+            const item = $('<span class="dropdown-header"></span>').text('Nothing to shown');
+            menu.append(item)
+        };
+
         const randElements = (elements) => {
-            elements.each((index, element) => {
+            $(elements).each((index, element) => {
                 if ($(element).is('optgroup')) {
                     const childElements = $(element).children();
 
@@ -46,21 +49,62 @@
             })
         };
 
-        randElements(select.children());
+        if (items.length === 0) {
+            appendNotSownElement();
+            return;
+        }
+
+        randElements(items);
+    }
+
+    function showDropdown() {
+        const select = $(this).prev(`.${pureElement}`);
+        const menu = $(this).find('.dropdown-menu');
+        const liveSearch = $(select).data('live-search');
+
+        function optionFilter(search) {
+            return function (index, item) {
+                return $(item).text().toLowerCase().includes(search.toLowerCase());
+            };
+        }
+
+        function changeSearch() {
+            const search = $(this).val();
+
+            const filtered = select.find('option').filter(optionFilter(search));
+            const elements = search ? filtered : select.children();
+
+            rendDropdown(menu, elements);
+        }
+
+        if (liveSearch) {
+            const item = $('<input class="form-control" type="text" placeholder="Search">').addClass(selectSearch);
+
+            $(`.${selectSearch}`).remove();
+
+            menu.append(item);
+            menu.find(`.${selectSearch}`).on('input', changeSearch)
+        }
+
+        rendDropdown(menu, select.children());
+    }
+    
+    function hideDropdown() {
+        $(this).find('.dropdown-menu .select-search').off('change');
     }
 
     function toggleElement(event) {
         event.preventDefault();
 
         const select = $(this).parents(2).prev(`.${pureElement}`);
-        const dropdown = $(this).parent().parent();
+        const dropdown = $(this).parent();
         const multiple = select.attr('multiple');
 
         if (multiple) {
             event.stopPropagation();
         }
 
-        if ($(this).hasClass('disabled') || $(this).hasClass('dropdown-header')) {
+        if ($(this).hasClass('disabled') || $(this).hasClass('dropdown-header') || $(this).hasClass(selectSearch)) {
             return;
         }
 
@@ -74,7 +118,7 @@
         const option = select.find('option[data-index="'+index+'"]');
         $(option).attr('selected', !$(option).attr('selected'));
 
-        rendDropdown.call(dropdown);
+        rendDropdown(dropdown, select.children());
         changeOption(select);
     }
 
@@ -123,7 +167,8 @@
 
     $('body')
         .on('click', `.${elementContainer} .dropdown-menu > *`, toggleElement)
-        .on('show.bs.dropdown', `.${elementContainer}`, rendDropdown)
+        .on('show.bs.dropdown', `.${elementContainer}`, showDropdown)
+        .on('hide.bs.dropdown', `.${elementContainer}`, hideDropdown)
         .on('change', `.${pureElement}`, function () {
             changeOption(this);
         });
