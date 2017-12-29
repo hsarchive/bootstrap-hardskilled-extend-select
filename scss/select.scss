@@ -1,11 +1,22 @@
-.select-extended {
-
+.select-extend {
+  display: none;
 }
 
 .select-extended-element {
+  text-overflow: ellipsis;
   position: relative;
+
+  .btn {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .dropdown-menu {
     width: 100%;
+
+    .dropdown-item {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

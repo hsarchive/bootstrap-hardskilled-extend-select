@@ -1,8 +1,14 @@
+.select-extend {
+  display: none; }
+
 .select-extended-element {
+  text-overflow: ellipsis;
   position: relative; }
+  .select-extended-element .btn {
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .select-extended-element .dropdown-menu {
     width: 100%; }
-    .select-extended-element .dropdown-menu .dropdown-title {
-      width: 100%;
-      padding: 3px 1.5rem;
-      font-weight: bold; }
+    .select-extended-element .dropdown-menu .dropdown-item {
+      overflow: hidden;
+      text-overflow: ellipsis; }

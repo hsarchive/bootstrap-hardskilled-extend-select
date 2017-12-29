@@ -2,16 +2,26 @@
     const elementContainer = 'select-extended-element';
     const pureElement = 'select-extend';
 
-    function openDropdown() {
-        const children = $(this).prev(`.${pureElement}`).children();
+    function rendDropdown() {
+        const select = $(this).prev(`.${pureElement}`);
         const menu = $(this).find('.dropdown-menu');
 
         $(menu).children().remove();
 
         const appendItem = (element) => {
             const label = element.innerText;
-            const active = $(element).is('option:selected') ? 'active' : '';
-            const item = $('<a href="#" class="dropdown-item"></a>').text(label).addClass(active);
+            const item = $('<a href="#" class="dropdown-item"></a>').text(label);
+
+            item.attr('data-index', $(element).data('index'))
+
+            if ($(element).is('option:selected')) {
+                item.addClass('active')
+            }
+
+            if ($(element).is('option:disabled')) {
+                item.addClass('disabled')
+            }
+
             menu.append(item)
         };
 
@@ -34,9 +44,38 @@
                     appendItem(element);
                 }
             })
+        };
+
+        randElements(select.children());
+    }
+
+    function toggleElement(event) {
+        event.preventDefault();
+
+        const select = $(this).parents(2).prev(`.${pureElement}`);
+        const dropdown = $(this).parent().parent();
+        const multiple = select.attr('multiple');
+
+        if (multiple) {
+            event.stopPropagation();
         }
 
-        randElements(children);
+        if ($(this).hasClass('disabled') || $(this).hasClass('dropdown-header')) {
+            return;
+        }
+
+        if (!multiple) {
+            select.find('option').attr('selected', false);
+            dropdown.find('.active').removeClass('active');
+        }
+
+        const index = $(this).data('index');
+
+        const option = select.find('option[data-index="'+index+'"]');
+        $(option).attr('selected', !$(option).attr('selected'));
+
+        rendDropdown.call(dropdown);
+        changeOption(select);
     }
 
     function getSelectedLabel(element) {
@@ -56,7 +95,7 @@
     }
 
     function changeOption(select) {
-        const selectElement = $(select.currentTarget);
+        const selectElement = $(select);
         const selectExtendedElement = $(selectElement).next(`.${elementContainer}`);
 
         updateElement(selectElement, selectExtendedElement)
@@ -72,29 +111,27 @@
         }
 
         const label = getSelectedLabel(element);
-
         const button = $('<button class="btn btn-secondary btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>');
         const dropdown = $('<div class="dropdown-menu"></div>');
         const select = $('<div class="dropdown"></div>').addClass(elementContainer);
 
+        $(element).find('option').each((index, option) => $(option).attr('data-index', index));
 
         $(element).addClass(pureElement);
         $(element).after(select.append(button.text(label), dropdown))
     }
 
+    $('body')
+        .on('click', `.${elementContainer} .dropdown-menu > *`, toggleElement)
+        .on('show.bs.dropdown', `.${elementContainer}`, rendDropdown)
+        .on('change', `.${pureElement}`, function () {
+            changeOption(this);
+        });
+
     // jQuery plugin with options
     $.fn.extendSelect = function() {
         try {
             $(this).each((index, element) => createSelectElement(element));
-
-            // Listeners
-            $(`.${elementContainer}`)
-                .off('show.bs.dropdown')
-                .on('show.bs.dropdown', openDropdown);
-
-            $(`.${pureElement}`)
-                .off('change')
-                .on('change', changeOption);
         } catch (e) {
             console.error(e);
         }
