@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <style>
         body {
@@ -16,9 +17,19 @@
             margin-bottom: 20px;
         }
 
+        label {
+            font-weight: bold;
+        }
+
         .row {
             background: #fff;
+            padding-top: 20px;
             margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        pre {
+            border: 0 !important;
         }
     </style>
 </head>
@@ -32,7 +43,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href=https://hardskilled.github.io/bootstrap-hardskilled-extend-select/example">Example</a>
+                <a class="nav-link" href=https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/">Docs</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select">GitHub</a>
@@ -49,7 +60,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <form role="form">
                 <div class="form-group">
                     <label for="basic">"Basic" (liveSearch disabled)</label>
@@ -67,8 +78,24 @@
                 </div>
             </form>
         </div>
+        <div class="col-md-9">
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select id="basic" class="form-control"&gt;
+    &lt;option&gt;cow&lt;/option&gt;
+    &lt;option data-subtext="option subtext"&gt;bull&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
+    &lt;optgroup label="test" data-subtext="optgroup subtext"&gt;
+        &lt;option&gt;ASD&lt;/option&gt;
+        &lt;option selected&gt;Bla&lt;/option&gt;
+        &lt;option&gt;Ble&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
+        </div>
+    </div>
 
-        <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-3">
             <form role="form">
                 <div class="form-group">
                     <label for="basic-live">"Basic" (liveSearch enabled)</label>
@@ -85,11 +112,31 @@
                 </div>
             </form>
         </div>
+        <div class="col-md-9">
+            <p>
+                To enable live search on select use the attribute: <pre class="prettyprint">data-live-search="true"</pre>
+            </p>
 
-        <div class="col-md-4">
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select id="basic-live" class="form-control" data-live-search="true"&gt;
+    &lt;option&gt;cow&lt;/option&gt;
+    &lt;option data-subtext="option subtext"&gt;bull&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
+    &lt;optgroup label="test" data-subtext="optgroup subtext"&gt;
+        &lt;option&gt;ASD&lt;/option&gt;
+        &lt;option selected&gt;Bla&lt;/option&gt;
+        &lt;option&gt;Ble&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
             <form role="form">
                 <div class="form-group">
-                    <label for="basic2">"Basic" (multiple, maxOptions=1)</label>
+                    <label for="basic2">"Basic" (multiple)</label>
 
                     <select id="basic2" class="form-control" multiple>
                         <option>cow</option>
@@ -104,79 +151,29 @@
                 </div>
             </form>
         </div>
-    </div>
+        <div class="col-md-9">
+            <p>To enable multiple select use the attribute: <pre class="prettyprint">multiple</pre></p>
 
-    <div class="row">
-        <div class="col-md-4">
-            <form role="form">
-                <div class="form-group">
-                    <label for="maxOption2">multiple, show-menu-arrow, maxOptions=2</label>
-
-                    <select id="maxOption2" class="form-control" multiple data-max-options="2">
-                        <option>chicken</option>
-                        <option>turkey</option>
-                        <option disabled>duck</option>
-                        <option>goose</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-
-        <div class="col-md-4">
-            <form>
-                <div class="form-group">
-                    <label class="control-label" for="lunch">Lunch:</label>
-
-                    <select id="lunch" data-live-search="true" title="Please select a lunch ...">
-                        <option>Hot Dog, Fries and a Soda</option>
-                        <option>Burger, Shake and a Smile</option>
-                        <option>Sugar, Spice and all things nice</option>
-                        <option>Baby Back Ribs</option>
-                        <option>A really really long option made to illustrate an issue with the live search in an inline form</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-
-
-        <div class="col-md-4">
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label for="error">error</label>
-
-                    <div class="col-lg-10 error">
-                        <select id="error" class="form-control">
-                            <option>pen</option>
-                            <option>pencil</option>
-                            <option selected>brush</option>
-                        </select>
-                    </div>
-                </div>
-            </form>
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select id="basic2" class="form-control" multiple&gt;
+    &lt;option&gt;cow&lt;/option&gt;
+    &lt;option&gt;bull&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
+    &lt;optgroup label="test" data-subtext="another test"&gt;
+        &lt;option&gt;ASD&lt;/option&gt;
+        &lt;option selected&gt;Bla&lt;/option&gt;
+        &lt;option&gt;Ble&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4">
-            <form role="form">
-                <div class="form-group has-error">
-                    <label class="control-label" for="country">error type 2</label>
-
-                    <select id="country" name="country" class="form-control">
-                        <option>Argentina</option>
-                        <option>United State</option>
-                        <option>Mexico</option>
-                    </select>
-
-                    <p class="help-block">No service available in the selected country</p>
-                </div>
-            </form>
-        </div>
-
-        <div class="col-md-8">
+        <div class="col-md-3">
             <form role="search">
                 <div class="form-group">
-                    <select multiple data-live-search="true" data-live-search-placeholder="Search" data-actions-box="true">
+                    <select multiple data-live-search="true" data-live-search-placeholder="Find">
                         <optgroup label="filter1">
                             <option>option1</option>
                             <option>option2</option>
@@ -197,21 +194,45 @@
                         </optgroup>
                     </select>
                 </div>
-
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q">
-
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
             </form>
+        </div>
+        <div class="col-md-9">
+            <p>
+                To enable live search on select use the attribute: <pre class="prettyprint">data-live-search="true"</pre>
+            </p>
+            <p>
+                To enable multiple select use the attribute: <pre class="prettyprint">multiple</pre>
+            </p>
+            <p>
+                You can customise live search placeholder: <pre class="prettyprint">data-live-search-placeholder="Find"</pre>
+            </p>
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select multiple data-live-search="true" data-live-search-placeholder="Find"&gt;
+    &lt;optgroup label="filter1"&gt;
+        &lt;option&gt;option1&lt;/option&gt;
+        &lt;option&gt;option2&lt;/option&gt;
+        &lt;option&gt;option3&lt;/option&gt;
+        &lt;option&gt;option4&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="filter2"&gt;
+        &lt;option&gt;option1&lt;/option&gt;
+        &lt;option&gt;option2&lt;/option&gt;
+        &lt;option&gt;option3&lt;/option&gt;
+        &lt;option&gt;option4&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="filter3"&gt;
+        &lt;option&gt;option1&lt;/option&gt;
+        &lt;option&gt;option2&lt;/option&gt;
+        &lt;option&gt;option3&lt;/option&gt;
+        &lt;option&gt;option4&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <form>
                 <div class="form-group">
                     <select id="first-disabled" data-hide-disabled="true" data-live-search="true">
@@ -230,32 +251,33 @@
                 </div>
             </form>
         </div>
-
-        <div class="col-md-8">
-            <form>
-                <div class="form-group">
-                    <select id="first-disabled2" multiple data-hide-disabled="true" data-size="5">
-                        <option>Apple</option>
-                        <option>Banana</option>
-                        <option>Orange</option>
-                        <option>Pineapple</option>
-                        <option>Apple2</option>
-                        <option>Banana2</option>
-                        <option>Orange2</option>
-                        <option>Pineapple2</option>
-                        <option>Apple2</option>
-                        <option>Banana2</option>
-                        <option>Orange2</option>
-                        <option>Pineapple2</option>
-                    </select>
-                    <button id="special" class="btn btn-default">Hide selected by disabling</button>
-                    <button id="special2" class="btn btn-default">Reset</button>
-                    <p>Just select 1st element, click button and check list again</p>
-                </div>
-            </form>
+        <div class="col-md-9">
+            <p>
+                To enable live search on select use the attribute: <pre class="prettyprint">data-live-search="true"</pre>
+            </p>
+            <p>
+                To hide disabled elements use the attribute: <pre class="prettyprint">data-hide-disabled="true"</pre>
+            </p>
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select id="first-disabled" data-hide-disabled="true" data-live-search="true"&gt;
+    &lt;optgroup disabled="disabled" label="disabled"&gt;
+        &lt;option&gt;Hidden&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="Fruit"&gt;
+        &lt;option&gt;Apple&lt;/option&gt;
+        &lt;option&gt;Orange&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="Vegetable"&gt;
+        &lt;option&gt;Corn&lt;/option&gt;
+        &lt;option&gt;Carrot&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
         </div>
     </div>
+</div>
 
+<div class="container">
     <div class="row">
         <div class="col-md-4">
             <form>

@@ -2,8 +2,11 @@
     const elementContainer = 'select-extended-element';
     const pureElement = 'select-extend';
     const selectSearch = 'select-search';
+    const defaultStateTitle = {
+        search: 'Search'
+    };
 
-    function rendDropdown(menu, items) {
+    function rendDropdown(menu, items, disabled) {
         $(menu).find('.dropdown-header, .dropdown-item').remove();
         
         const appendItem = (element) => {
@@ -36,6 +39,10 @@
 
         const randElements = (elements) => {
             $(elements).each((index, element) => {
+                if (disabled && $(element).is(':disabled')) {
+                    return;
+                }
+
                 if ($(element).is('optgroup')) {
                     const childElements = $(element).children();
 
@@ -48,6 +55,8 @@
                 }
             })
         };
+
+        items = items.filter((index, item) => disabled ? $(item).is(':enabled') : true);
 
         if (items.length === 0) {
             appendNotSownElement();
@@ -74,19 +83,20 @@
             const filtered = select.find('option').filter(optionFilter(search));
             const elements = search ? filtered : select.children();
 
-            rendDropdown(menu, elements);
+            rendDropdown(menu, elements, select.data('hide-disabled'));
         }
 
         if (liveSearch) {
-            const item = $('<input class="form-control" type="text" placeholder="Search">').addClass(selectSearch);
+            const searchPlaceholder = $(select).data('live-search-placeholder') || defaultStateTitle.search;
+            const item = $('<input class="form-control" type="text">').addClass(selectSearch).attr('placeholder', searchPlaceholder);
 
             $(`.${selectSearch}`).remove();
 
             menu.append(item);
-            menu.find(`.${selectSearch}`).on('input', changeSearch)
+            menu.find(`.${selectSearch}`).focus().on('input', changeSearch)
         }
 
-        rendDropdown(menu, select.children());
+        rendDropdown(menu, select.children(), select.data('hide-disabled'));
     }
     
     function hideDropdown() {
@@ -118,7 +128,7 @@
         const option = select.find('option[data-index="'+index+'"]');
         $(option).attr('selected', !$(option).attr('selected'));
 
-        rendDropdown(dropdown, select.children());
+        rendDropdown(dropdown, select.children(), select.data('hide-disabled'));
         changeOption(select);
     }
 
