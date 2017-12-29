@@ -17,7 +17,8 @@
             margin-bottom: 20px;
         }
 
-        label {
+        .title {
+            display: block;
             font-weight: bold;
         }
 
@@ -46,6 +47,9 @@
                 <a class="nav-link" href=https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/">Docs</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases">Download</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select">GitHub</a>
             </li>
             <li class="nav-item">
@@ -60,10 +64,40 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-6">
+            <p>You can require bootstrap plugin via cdn or <a href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases">download</a> the archive with release and unzip archive into assets directory.</p>
+            <p>For install via npm use command: <pre class="prettyprint">npm i --save bootstrap-hardskilled-extend-select</pre></p>
+            <strong>Example usage:</strong>
+            <pre class="prettyprint">
+&lt;link rel="stylesheet" href="../select.min.css"&gt;
+&lt;script src="./select.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('select').extendSelect();
+&lt;/script&gt;</pre>
+        </div>
+        <div class="col-md-6">
+            <strong>Usage with options:</strong>
+            <pre class="prettyprint">
+&lt;link rel="stylesheet" href="../select.min.css"&gt;
+&lt;script src="./select.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('select').extendSelect({
+        // Search input placeholder:
+        search: 'Find',
+        // Title if option not selected:
+        notSelectedTitle: 'Pls select',
+        // Message if select list empty:
+        empty: 'Empty',
+    });
+&lt;/script&gt;</pre>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-3">
             <form role="form">
                 <div class="form-group">
-                    <label for="basic">"Basic" (liveSearch disabled)</label>
+                    <label class="title" for="basic">"Basic" (liveSearch disabled)</label>
 
                     <select id="basic" class="form-control">
                         <option>cow</option>
@@ -98,7 +132,7 @@
         <div class="col-md-3">
             <form role="form">
                 <div class="form-group">
-                    <label for="basic-live">"Basic" (liveSearch enabled)</label>
+                    <label class="title" for="basic-live">"Basic" (liveSearch enabled)</label>
                     <select id="basic-live" class="form-control" data-live-search="true">
                         <option>cow</option>
                         <option data-subtext="option subtext">bull</option>
@@ -136,7 +170,7 @@
         <div class="col-md-3">
             <form role="form">
                 <div class="form-group">
-                    <label for="basic2">"Basic" (multiple)</label>
+                    <label class="title" for="basic2">"Basic" (multiple)</label>
 
                     <select id="basic2" class="form-control" multiple>
                         <option>cow</option>
@@ -275,87 +309,102 @@
 &lt;/select&gt;</pre>
         </div>
     </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <form>
-                <div class="input-group">
-                    <span class="input-group-addon">@</span>
-                    <select class="form-control">
-                        <option>One</option>
-                        <option>Two</option>
-                        <option>Three</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-
-
-        <div class="col-md-4">
-            <div class="input-group">
-                <span class="input-group-addon">@</span>
-                <select class="form-control" data-mobile="true">
-                    <option>One</option>
-                    <option>Two</option>
-                    <option>Three</option>
-                </select>
-            </div>
-            <p>With <code>data-mobile="true"</code> option.</p>
-        </div>
-
-
-        <div class="col-md-4">
-            <form>
-                <div class="form-group">
-                    <select id="done" multiple data-done-button="true">
-                        <option>Apple</option>
-                        <option>Banana</option>
-                        <option>Orange</option>
-                        <option>Pineapple</option>
-                        <option>Apple2</option>
-                        <option>Banana2</option>
-                        <option>Orange2</option>
-                        <option>Pineapple2</option>
-                        <option>Apple2</option>
-                        <option>Banana2</option>
-                        <option>Orange2</option>
-                        <option>Pineapple2</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <div class="row">
-        <div class="col-md-6">
-            <form>
+        <div class="col-md-3">
+            <form role="form">
                 <div class="form-group">
-                    <label for="tokens">Key words (data-tokens)</label>
-                    <select id="tokens" class="form-control" multiple data-live-search="true">
-                        <option data-tokens="first">I actually am called "one"</option>
-                        <option data-tokens="second">And me "two"</option>
-                        <option data-tokens="last">I am "three"</option>
+                    <span class="title">"Basic" (colored elements)</span>
+
+                    <label for="basicColoredPrimary">btn-primary:</label>
+                    <select id="basicColoredPrimary" data-btn-class="btn-primary" class="form-control">
+                        <option>cow</option>
+                        <option data-subtext="option subtext">bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="optgroup subtext">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="basicColoredSuccess">btn-success:</label>
+
+                    <select id="basicColoredSuccess" data-btn-class="btn-success" class="form-control">
+                        <option>cow</option>
+                        <option data-subtext="option subtext">bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="optgroup subtext">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="basicColoredInfo">btn-info:</label>
+
+                    <select id="basicColoredInfo" data-btn-class="btn-info" class="form-control">
+                        <option>cow</option>
+                        <option data-subtext="option subtext">bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="optgroup subtext">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="basicColoredWarning">btn-warning:</label>
+
+                    <select id="basicColoredWarning" data-btn-class="btn-warning" class="form-control">
+                        <option>cow</option>
+                        <option data-subtext="option subtext">bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="optgroup subtext">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="basicColoredDanger">btn-danger:</label>
+
+                    <select id="basicColoredDanger" data-btn-class="btn-danger" class="form-control">
+                        <option>cow</option>
+                        <option data-subtext="option subtext">bull</option>
+                        <option class="get-class" disabled>ox</option>
+                        <optgroup label="test" data-subtext="optgroup subtext">
+                            <option>ASD</option>
+                            <option selected>Bla</option>
+                            <option>Ble</option>
+                        </optgroup>
                     </select>
                 </div>
             </form>
         </div>
-
-        <div class="col-md-6">
-            <form>
-                <div class="form-group">
-                    <label for="lunchBegins">Lunch (Begins search):</label>
-
-                    <select id="lunchBegins" data-live-search="true" data-live-search-style="begins" title="Please select a lunch ...">
-                        <option>Hot Dog, Fries and a Soda</option>
-                        <option>Burger, Shake and a Smile</option>
-                        <option>Sugar, Spice and all things nice</option>
-                        <option>Baby Back Ribs</option>
-                        <option>A really really long option made to illustrate an issue with the live search in an inline form</option>
-                    </select>
-                </div>
-            </form>
+        <div class="col-md-9">
+            <p>
+                To customise button use the attribute: <pre class="prettyprint">data-btn-class="btn-primary"</pre>
+            </p>
+            <p>
+                To default used class: <pre class="prettyprint">btn-secondary</pre>
+            </p>
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select id="basic" data-btn-class="btn-primary" class="form-control"&gt;
+    &lt;option&gt;cow&lt;/option&gt;
+    &lt;option data-subtext="option subtext"&gt;bull&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
+    &lt;optgroup label="test" data-subtext="optgroup subtext"&gt;
+        &lt;option&gt;ASD&lt;/option&gt;
+        &lt;option selected&gt;Bla&lt;/option&gt;
+        &lt;option&gt;Ble&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
         </div>
     </div>
 </div>

@@ -2,8 +2,10 @@
     const elementContainer = 'select-extended-element';
     const pureElement = 'select-extend';
     const selectSearch = 'select-search';
-    const defaultStateTitle = {
-        search: 'Search'
+    const options = {
+        search: 'Search',
+        notSelectedTitle: 'Nothing to shown',
+        empty: 'Nothing to shown',
     };
 
     function rendDropdown(menu, items, disabled) {
@@ -33,7 +35,7 @@
         };
 
         const appendNotSownElement = () => {
-            const item = $('<span class="dropdown-header"></span>').text('Nothing to shown');
+            const item = $('<span class="dropdown-header"></span>').text(options.empty);
             menu.append(item)
         };
 
@@ -87,7 +89,7 @@
         }
 
         if (liveSearch) {
-            const searchPlaceholder = $(select).data('live-search-placeholder') || defaultStateTitle.search;
+            const searchPlaceholder = $(select).data('live-search-placeholder') || options.search;
             const item = $('<input class="form-control" type="text">').addClass(selectSearch).attr('placeholder', searchPlaceholder);
 
             $(`.${selectSearch}`).remove();
@@ -140,7 +142,7 @@
             selectedArray.push(option.innerText)
         });
 
-        return selected.length !== 0 ? selectedArray.join(', ') : 'Nothing selected'
+        return selected.length !== 0 ? selectedArray.join(', ') : options.notSelectedTitle
     }
 
     function updateElement(select, extended) {
@@ -164,8 +166,9 @@
             return;
         }
 
+        const btnClasses = $(element).data('btn-class') || 'btn-secondary';
         const label = getSelectedLabel(element);
-        const button = $('<button class="btn btn-secondary btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>');
+        const button = $('<button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
         const dropdown = $('<div class="dropdown-menu"></div>');
         const select = $('<div class="dropdown"></div>').addClass(elementContainer);
 
@@ -184,8 +187,14 @@
         });
 
     // jQuery plugin with options
-    $.fn.extendSelect = function() {
+    $.fn.extendSelect = function(overrideOptions) {
         try {
+            if (overrideOptions) {
+                options.search = overrideOptions.search || options.search;
+                options.notSelectedTitle = overrideOptions.notSelectedTitle || options.notSelectedTitle;
+                options.empty = overrideOptions.empty || options.empty;
+            }
+
             $(this).each((index, element) => createSelectElement(element));
         } catch (e) {
             console.error(e);
