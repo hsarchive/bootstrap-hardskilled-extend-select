@@ -2,8 +2,15 @@
     const elementContainer = 'select-extended-element';
     const pureElement = 'select-extend';
     const selectSearch = 'select-search';
+    const options = {
+        search: 'Search',
+        notSelectedTitle: 'Nothing to shown',
+        empty: 'Nothing to shown',
+        activeClass: 'active',
+        disabledClass: 'disabled'
+    };
 
-    function rendDropdown(menu, items) {
+    function rendDropdown(menu, items, disabled) {
         $(menu).find('.dropdown-header, .dropdown-item').remove();
         
         const appendItem = (element) => {
@@ -13,11 +20,11 @@
             item.attr('data-index', $(element).data('index'));
 
             if ($(element).is('option:selected')) {
-                item.addClass('active')
+                item.addClass(options.activeClass)
             }
 
             if ($(element).is('option:disabled')) {
-                item.addClass('disabled')
+                item.addClass(options.disabledClass)
             }
 
             menu.append(item)
@@ -30,12 +37,16 @@
         };
 
         const appendNotSownElement = () => {
-            const item = $('<span class="dropdown-header"></span>').text('Nothing to shown');
+            const item = $('<span class="dropdown-header"></span>').text(options.empty);
             menu.append(item)
         };
 
         const randElements = (elements) => {
             $(elements).each((index, element) => {
+                if (disabled && $(element).is(':disabled')) {
+                    return;
+                }
+
                 if ($(element).is('optgroup')) {
                     const childElements = $(element).children();
 
@@ -48,6 +59,8 @@
                 }
             })
         };
+
+        items = items.filter((index, item) => disabled ? $(item).is(':enabled') : true);
 
         if (items.length === 0) {
             appendNotSownElement();
@@ -74,19 +87,20 @@
             const filtered = select.find('option').filter(optionFilter(search));
             const elements = search ? filtered : select.children();
 
-            rendDropdown(menu, elements);
+            rendDropdown(menu, elements, select.data('hide-disabled'));
         }
 
         if (liveSearch) {
-            const item = $('<input class="form-control" type="text" placeholder="Search">').addClass(selectSearch);
+            const searchPlaceholder = $(select).data('live-search-placeholder') || options.search;
+            const item = $('<input class="form-control" type="text">').addClass(selectSearch).attr('placeholder', searchPlaceholder);
 
             $(`.${selectSearch}`).remove();
 
             menu.append(item);
-            menu.find(`.${selectSearch}`).on('input', changeSearch)
+            menu.find(`.${selectSearch}`).focus().on('input', changeSearch)
         }
 
-        rendDropdown(menu, select.children());
+        rendDropdown(menu, select.children(), select.data('hide-disabled'));
     }
     
     function hideDropdown() {
@@ -104,21 +118,21 @@
             event.stopPropagation();
         }
 
-        if ($(this).hasClass('disabled') || $(this).hasClass('dropdown-header') || $(this).hasClass(selectSearch)) {
+        if ($(this).hasClass(options.disabledClass) || $(this).hasClass('dropdown-header') || $(this).hasClass(selectSearch)) {
             return;
         }
 
         if (!multiple) {
             select.find('option').attr('selected', false);
-            dropdown.find('.active').removeClass('active');
+            dropdown.find(`.${options.activeClass}`).removeClass(options.activeClass);
         }
 
         const index = $(this).data('index');
 
         const option = select.find('option[data-index="'+index+'"]');
         $(option).attr('selected', !$(option).attr('selected'));
+        $(this).toggleClass(options.activeClass);
 
-        rendDropdown(dropdown, select.children());
         changeOption(select);
     }
 
@@ -130,7 +144,7 @@
             selectedArray.push(option.innerText)
         });
 
-        return selected.length !== 0 ? selectedArray.join(', ') : 'Nothing selected'
+        return selected.length !== 0 ? selectedArray.join(', ') : options.notSelectedTitle
     }
 
     function updateElement(select, extended) {
@@ -154,8 +168,9 @@
             return;
         }
 
+        const btnClasses = $(element).data('btn-class') || 'btn-secondary';
         const label = getSelectedLabel(element);
-        const button = $('<button class="btn btn-secondary btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>');
+        const button = $('<button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
         const dropdown = $('<div class="dropdown-menu"></div>');
         const select = $('<div class="dropdown"></div>').addClass(elementContainer);
 
@@ -174,8 +189,14 @@
         });
 
     // jQuery plugin with options
-    $.fn.extendSelect = function() {
+    $.fn.extendSelect = function(overrideOptions) {
         try {
+            if (overrideOptions) {
+                options.search = overrideOptions.search || options.search;
+                options.notSelectedTitle = overrideOptions.notSelectedTitle || options.notSelectedTitle;
+                options.empty = overrideOptions.empty || options.empty;
+            }
+
             $(this).each((index, element) => createSelectElement(element));
         } catch (e) {
             console.error(e);
