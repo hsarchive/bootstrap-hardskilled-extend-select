@@ -129,8 +129,8 @@
 
         const option = select.find('option[data-index="'+index+'"]');
         $(option).attr('selected', !$(option).attr('selected'));
+        $(this).toggleClass('active');
 
-        rendDropdown(dropdown, select.children(), select.data('hide-disabled'));
         changeOption(select);
     }
 
