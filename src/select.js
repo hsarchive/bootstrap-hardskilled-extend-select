@@ -6,6 +6,8 @@
         search: 'Search',
         notSelectedTitle: 'Nothing to shown',
         empty: 'Nothing to shown',
+        activeClass: 'active',
+        disabledClass: 'disabled'
     };
 
     function rendDropdown(menu, items, disabled) {
@@ -18,11 +20,11 @@
             item.attr('data-index', $(element).data('index'));
 
             if ($(element).is('option:selected')) {
-                item.addClass('active')
+                item.addClass(options.activeClass)
             }
 
             if ($(element).is('option:disabled')) {
-                item.addClass('disabled')
+                item.addClass(options.disabledClass)
             }
 
             menu.append(item)
@@ -116,20 +118,20 @@
             event.stopPropagation();
         }
 
-        if ($(this).hasClass('disabled') || $(this).hasClass('dropdown-header') || $(this).hasClass(selectSearch)) {
+        if ($(this).hasClass(options.disabledClass) || $(this).hasClass('dropdown-header') || $(this).hasClass(selectSearch)) {
             return;
         }
 
         if (!multiple) {
             select.find('option').attr('selected', false);
-            dropdown.find('.active').removeClass('active');
+            dropdown.find(`.${options.activeClass}`).removeClass(options.activeClass);
         }
 
         const index = $(this).data('index');
 
         const option = select.find('option[data-index="'+index+'"]');
         $(option).attr('selected', !$(option).attr('selected'));
-        $(this).toggleClass('active');
+        $(this).toggleClass(options.activeClass);
 
         changeOption(select);
     }

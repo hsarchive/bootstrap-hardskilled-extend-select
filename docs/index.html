@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Bootstrap extended selects</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <style>
@@ -31,6 +31,10 @@
 
         .select-extended-element {
             margin-bottom: .5rem;
+        }
+
+        .center {
+            text-align: center;
         }
 
         pre {
@@ -78,6 +82,9 @@
 &lt;script&gt;
     $('select').extendSelect();
 &lt;/script&gt;</pre>
+            <div class="center">
+                <a href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/issues/new" class="btn btn-success">Create Issue or request features</a>
+            </div>
         </div>
         <div class="col-md-6">
             <strong>Usage with options:</strong>
@@ -92,6 +99,10 @@
         notSelectedTitle: 'Pls select',
         // Message if select list empty:
         empty: 'Empty',
+        // Class to active element
+        activeClass: 'active',
+        // Class to disabled element
+        disabledClass: 'disabled'
     });
 &lt;/script&gt;</pre>
         </div>
@@ -104,13 +115,13 @@
                     <label class="title" for="basic">"Basic" (liveSearch disabled)</label>
 
                     <select id="basic" class="form-control">
-                        <option>cow</option>
-                        <option data-subtext="option subtext">bull</option>
-                        <option class="get-class" disabled>ox</option>
-                        <optgroup label="test" data-subtext="optgroup subtext">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                        <option selected>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="Insects">
+                            <option>Spider</option>
+                            <option>Worm</option>
+                            <option>Fly</option>
                         </optgroup>
                     </select>
                 </div>
@@ -120,13 +131,13 @@
             <strong>Example:</strong>
             <pre class="prettyprint">
 &lt;select id="basic" class="form-control"&gt;
-    &lt;option&gt;cow&lt;/option&gt;
-    &lt;option data-subtext="option subtext"&gt;bull&lt;/option&gt;
-    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
-    &lt;optgroup label="test" data-subtext="optgroup subtext"&gt;
-        &lt;option&gt;ASD&lt;/option&gt;
-        &lt;option selected&gt;Bla&lt;/option&gt;
-        &lt;option&gt;Ble&lt;/option&gt;
+    &lt;option&gt;Rabbit&lt;/option&gt;
+    &lt;option&gt;Cat&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
+    &lt;optgroup label="Insects"&gt;
+        &lt;option&gt;Spider&lt;/option&gt;
+        &lt;option&gt;Worm&lt;/option&gt;
+        &lt;option&gt;Fly&lt;/option&gt;
     &lt;/optgroup&gt;
 &lt;/select&gt;</pre>
         </div>
@@ -138,13 +149,13 @@
                 <div class="form-group">
                     <label class="title" for="basic-live">"Basic" (liveSearch enabled)</label>
                     <select id="basic-live" class="form-control" data-live-search="true">
-                        <option>cow</option>
-                        <option data-subtext="option subtext">bull</option>
-                        <option class="get-class" disabled>ox</option>
-                        <optgroup label="test" data-subtext="optgroup subtext">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                        <option>Rabbit</option>
+                        <option selected>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="Insects">
+                            <option>Spider</option>
+                            <option>Worm</option>
+                            <option>Fly</option>
                         </optgroup>
                     </select>
                 </div>
@@ -158,13 +169,13 @@
             <strong>Example:</strong>
             <pre class="prettyprint">
 &lt;select id="basic-live" class="form-control" data-live-search="true"&gt;
-    &lt;option&gt;cow&lt;/option&gt;
-    &lt;option data-subtext="option subtext"&gt;bull&lt;/option&gt;
-    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
-    &lt;optgroup label="test" data-subtext="optgroup subtext"&gt;
-        &lt;option&gt;ASD&lt;/option&gt;
-        &lt;option selected&gt;Bla&lt;/option&gt;
-        &lt;option&gt;Ble&lt;/option&gt;
+    &lt;option&gt;Rabbit&lt;/option&gt;
+    &lt;option selected&gt;Cat&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
+    &lt;optgroup label="Insects"&gt;
+        &lt;option&gt;Spider&lt;/option&gt;
+        &lt;option&gt;Worm&lt;/option&gt;
+        &lt;option&gt;Fly&lt;/option&gt;
     &lt;/optgroup&gt;
 &lt;/select&gt;</pre>
         </div>
@@ -177,13 +188,13 @@
                     <label class="title" for="basic2">"Basic" (multiple)</label>
 
                     <select id="basic2" class="form-control" multiple>
-                        <option>cow</option>
-                        <option>bull</option>
-                        <option class="get-class" disabled>ox</option>
+                        <option selected>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
                         <optgroup label="test" data-subtext="another test">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                            <option>Spider</option>
+                            <option selected>Worm</option>
+                            <option>Fly</option>
                         </optgroup>
                     </select>
                 </div>
@@ -195,13 +206,13 @@
             <strong>Example:</strong>
             <pre class="prettyprint">
 &lt;select id="basic2" class="form-control" multiple&gt;
-    &lt;option&gt;cow&lt;/option&gt;
-    &lt;option&gt;bull&lt;/option&gt;
-    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
+    &lt;option selected&gt;Rabbit&lt;/option&gt;
+    &lt;option&gt;Cat&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
     &lt;optgroup label="test" data-subtext="another test"&gt;
-        &lt;option&gt;ASD&lt;/option&gt;
-        &lt;option selected&gt;Bla&lt;/option&gt;
-        &lt;option&gt;Ble&lt;/option&gt;
+        &lt;option&gt;Spider&lt;/option&gt;
+        &lt;option selected&gt;Worm&lt;/option&gt;
+        &lt;option&gt;Fly&lt;/option&gt;
     &lt;/optgroup&gt;
 &lt;/select&gt;</pre>
         </div>
@@ -322,65 +333,65 @@
 
                     <label for="basicColoredPrimary">btn-primary:</label>
                     <select id="basicColoredPrimary" data-btn-class="btn-primary" class="form-control">
-                        <option>cow</option>
-                        <option data-subtext="option subtext">bull</option>
-                        <option class="get-class" disabled>ox</option>
-                        <optgroup label="test" data-subtext="optgroup subtext">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                        <option>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="Insects">
+                            <option>Spider</option>
+                            <option>Worm</option>
+                            <option selected>Fly</option>
                         </optgroup>
                     </select>
 
                     <label for="basicColoredSuccess">btn-success:</label>
 
                     <select id="basicColoredSuccess" data-btn-class="btn-success" class="form-control">
-                        <option>cow</option>
-                        <option data-subtext="option subtext">bull</option>
-                        <option class="get-class" disabled>ox</option>
-                        <optgroup label="test" data-subtext="optgroup subtext">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                        <option>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="Insects">
+                            <option>Spider</option>
+                            <option>Worm</option>
+                            <option selected>Fly</option>
                         </optgroup>
                     </select>
 
                     <label for="basicColoredInfo">btn-info:</label>
 
                     <select id="basicColoredInfo" data-btn-class="btn-info" class="form-control">
-                        <option>cow</option>
-                        <option data-subtext="option subtext">bull</option>
-                        <option class="get-class" disabled>ox</option>
-                        <optgroup label="test" data-subtext="optgroup subtext">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                        <option>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="Insects">
+                            <option>Spider</option>
+                            <option>Worm</option>
+                            <option selected>Fly</option>
                         </optgroup>
                     </select>
 
                     <label for="basicColoredWarning">btn-warning:</label>
 
                     <select id="basicColoredWarning" data-btn-class="btn-warning" class="form-control">
-                        <option>cow</option>
-                        <option data-subtext="option subtext">bull</option>
-                        <option class="get-class" disabled>ox</option>
-                        <optgroup label="test" data-subtext="optgroup subtext">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                        <option>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="Insects">
+                            <option>Spider</option>
+                            <option>Worm</option>
+                            <option selected>Fly</option>
                         </optgroup>
                     </select>
 
                     <label for="basicColoredDanger">btn-danger:</label>
 
                     <select id="basicColoredDanger" data-btn-class="btn-danger" class="form-control">
-                        <option>cow</option>
-                        <option data-subtext="option subtext">bull</option>
-                        <option class="get-class" disabled>ox</option>
-                        <optgroup label="test" data-subtext="optgroup subtext">
-                            <option>ASD</option>
-                            <option selected>Bla</option>
-                            <option>Ble</option>
+                        <option>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="Insects">
+                            <option>Spider</option>
+                            <option>Worm</option>
+                            <option selected>Fly</option>
                         </optgroup>
                     </select>
                 </div>
@@ -396,13 +407,13 @@
             <strong>Example:</strong>
             <pre class="prettyprint">
 &lt;select id="basic" data-btn-class="btn-primary" class="form-control"&gt;
-    &lt;option&gt;cow&lt;/option&gt;
-    &lt;option data-subtext="option subtext"&gt;bull&lt;/option&gt;
-    &lt;option class="get-class" disabled&gt;ox&lt;/option&gt;
-    &lt;optgroup label="test" data-subtext="optgroup subtext"&gt;
-        &lt;option&gt;ASD&lt;/option&gt;
-        &lt;option selected&gt;Bla&lt;/option&gt;
-        &lt;option&gt;Ble&lt;/option&gt;
+    &lt;option&gt;Rabbit&lt;/option&gt;
+    &lt;option&gt;Cat&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
+    &lt;optgroup label="Insects"&gt;
+        &lt;option&gt;Spider&lt;/option&gt;
+        &lt;option&gt;Worm&lt;/option&gt;
+        &lt;option selected&gt;Fly&lt;/option&gt;
     &lt;/optgroup&gt;
 &lt;/select&gt;</pre>
         </div>
