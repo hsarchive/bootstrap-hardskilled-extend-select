@@ -107,7 +107,9 @@
         // Custom error message for all selects (use placeholder %items)
         maxOptionMessage: 'Max %items elements',
         // Delay to hide message
-        maxOptionMessageDelay: 2000
+        maxOptionMessageDelay: 2000,
+        // Popover logic (resize or save height)
+        popoverResize: true
     });
 &lt;/script&gt;</pre>
         </div>
@@ -512,7 +514,7 @@
 </div>
 
 <link rel="stylesheet" href="../css/select.min.css">
-<script src="../src/select.js"></script>
+<script src="../js/select.min.js"></script>
 <script>
     jQuery('body').ready(function ($) {
         $('select').extendSelect();

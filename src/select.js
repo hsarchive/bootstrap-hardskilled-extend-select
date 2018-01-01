@@ -10,6 +10,7 @@
         disabledClass: 'disabled',
         maxOptionMessage: 'Limit reached (%items items max)',
         maxOptionMessageDelay: 2000,
+        popoverResize: false,
     };
 
     function rendPopperPosition(element) {
@@ -96,8 +97,12 @@
             const filtered = select.find('option').filter(optionFilter(search));
             const elements = search ? filtered : select.children();
 
+            if (!options.popoverResize) {
+                menu.css('height', menu.outerHeight())
+            }
+
             rendDropdown(menu, elements, select.data('hide-disabled'));
-            rendPopperPosition(menu);
+            options.popoverResize && rendPopperPosition(menu);
         }
 
         if (liveSearch) {
