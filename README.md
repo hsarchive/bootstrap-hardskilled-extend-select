@@ -1,6 +1,6 @@
-#Bootstrap extended select
+# Bootstrap extended select
 
-##[Demo and documentation](https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/)
+## [Demo and documentation](https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/)
 
 You can require bootstrap plugin via cdn or [download](https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases) the archive with release and unzip into assets directory.
 
