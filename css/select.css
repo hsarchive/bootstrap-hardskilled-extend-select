@@ -7,20 +7,18 @@
   .select-extended-element .btn {
     overflow: hidden;
     text-overflow: ellipsis; }
-  .select-extended-element .dropdown-menu {
-    width: 100%; }
-    .select-extended-element .dropdown-menu .select-search {
-      border-radius: 0;
-      border-right: 0;
-      border-left: 0;
-      border-top: 0; }
-    .select-extended-element .dropdown-menu .select-extend-alert {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      margin-bottom: 0;
-      display: none; }
-    .select-extended-element .dropdown-menu .dropdown-item {
-      overflow: hidden;
-      text-overflow: ellipsis; }
+  .select-extended-element .dropdown-menu .select-search {
+    border-radius: 0;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0; }
+  .select-extended-element .dropdown-menu .select-extend-alert {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-bottom: 0;
+    display: none; }
+  .select-extended-element .dropdown-menu .dropdown-item {
+    overflow: hidden;
+    text-overflow: ellipsis; }

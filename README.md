@@ -40,7 +40,9 @@ npm i --save bootstrap-hardskilled-extend-select
         // Delay to hide message
         maxOptionMessageDelay: 2000,
         // Popover logic (resize or save height)
-        popoverResize: true
+        popoverResize: true,
+        // Auto resize dropdown by button width
+        dropdownResize: true
     });
 </script>
 ```

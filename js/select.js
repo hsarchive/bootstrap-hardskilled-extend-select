@@ -10,7 +10,8 @@
         disabledClass: 'disabled',
         maxOptionMessage: 'Limit reached (%items items max)',
         maxOptionMessageDelay: 2000,
-        popoverResize: false
+        popoverResize: false,
+        dropdownResize: false
     };
 
     function rendPopperPosition(element) {
@@ -83,6 +84,7 @@
     function showDropdown(event) {
         const select = $(this).prev(`.${pureElement}`);
         const menu = $(this).find('.dropdown-menu');
+        const button = $(this).find('.btn');
         const liveSearch = $(select).data('live-search');
 
         function optionFilter(search) {
@@ -116,8 +118,11 @@
         }
 
         rendDropdown(menu, select.children(), select.data('hide-disabled'));
-
         setTimeout(() => $('[autofocus]', event.target).focus(), 100);
+
+        if (options.dropdownResize) {
+            menu.css('min-width', button.outerWidth());
+        }
     }
 
     function hideDropdown() {
@@ -197,7 +202,7 @@
             return;
         }
 
-        const btnClasses = $(element).data('btn-class') || 'btn-block btn-secondary';
+        const btnClasses = $(element).data('btn-class') || 'btn-secondary';
         const label = getSelectedLabel(element);
         const button = $('<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
         const alert = $('<div class="alert alert-danger select-extend-alert" role="alert"></div>');
