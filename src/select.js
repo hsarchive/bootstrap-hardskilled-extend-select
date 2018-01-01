@@ -2,7 +2,7 @@
     const elementContainer = 'select-extended-element';
     const pureElement = 'select-extend';
     const selectSearch = 'select-search';
-    const options = {
+    let options = {
         search: 'Search',
         notSelectedTitle: 'Nothing to shown',
         empty: 'Nothing to shown',
@@ -223,9 +223,7 @@
     $.fn.extendSelect = function(overrideOptions) {
         try {
             if (overrideOptions) {
-                options.search = overrideOptions.search || options.search;
-                options.notSelectedTitle = overrideOptions.notSelectedTitle || options.notSelectedTitle;
-                options.empty = overrideOptions.empty || options.empty;
+                options = Object.assign(options, overrideOptions);
             }
 
             $(this).each((index, element) => createSelectElement(element));
