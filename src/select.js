@@ -7,7 +7,9 @@
         notSelectedTitle: 'Nothing to shown',
         empty: 'Nothing to shown',
         activeClass: 'active',
-        disabledClass: 'disabled'
+        disabledClass: 'disabled',
+        maxOptionMessage: 'Limit reached (%items items max)',
+        maxOptionMessageDelay: 2000,
     };
 
     function rendDropdown(menu, items, disabled) {
@@ -70,7 +72,7 @@
         randElements(items);
     }
 
-    function showDropdown() {
+    function showDropdown(event) {
         const select = $(this).prev(`.${pureElement}`);
         const menu = $(this).find('.dropdown-menu');
         const liveSearch = $(select).data('live-search');
@@ -92,15 +94,17 @@
 
         if (liveSearch) {
             const searchPlaceholder = $(select).data('live-search-placeholder') || options.search;
-            const item = $('<input class="form-control" type="text">').addClass(selectSearch).attr('placeholder', searchPlaceholder);
+            const item = $('<input class="form-control" type="text" autofocus>').addClass(selectSearch).attr('placeholder', searchPlaceholder);
 
             $(`.${selectSearch}`).remove();
 
             menu.append(item);
-            menu.find(`.${selectSearch}`).focus().on('input', changeSearch)
+            menu.find(`.${selectSearch}`).on('input', changeSearch)
         }
 
         rendDropdown(menu, select.children(), select.data('hide-disabled'));
+
+        setTimeout(() => $('[autofocus]', event.target).focus(), 100)
     }
     
     function hideDropdown() {
@@ -113,6 +117,11 @@
         const select = $(this).parents(2).prev(`.${pureElement}`);
         const dropdown = $(this).parent();
         const multiple = select.attr('multiple');
+        const maxOptions = select.data('max-options');
+        const maxOptionsMessage = select.data('max-options-message') || options.maxOptionMessage;
+        const selectedCount = select.find("option:selected").length;
+        const index = $(this).data('index');
+        const option = select.find('option[data-index="'+index+'"]');
 
         if (multiple) {
             event.stopPropagation();
@@ -122,14 +131,22 @@
             return;
         }
 
+        if (maxOptions && !$(option).attr('selected') && selectedCount >= maxOptions) {
+            const selectExtendAlert = $(dropdown).find('.select-extend-alert');
+
+            $(selectExtendAlert).text(maxOptionsMessage.replace('%items', maxOptions));
+            $(selectExtendAlert).fadeIn(200);
+
+
+            setTimeout(() => $(selectExtendAlert).fadeOut(200), options.maxOptionMessageDelay);
+            return;
+        }
+
         if (!multiple) {
             select.find('option').attr('selected', false);
             dropdown.find(`.${options.activeClass}`).removeClass(options.activeClass);
         }
 
-        const index = $(this).data('index');
-
-        const option = select.find('option[data-index="'+index+'"]');
         $(option).attr('selected', !$(option).attr('selected'));
         $(this).toggleClass(options.activeClass);
 
@@ -171,7 +188,8 @@
         const btnClasses = $(element).data('btn-class') || 'btn-secondary';
         const label = getSelectedLabel(element);
         const button = $('<button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
-        const dropdown = $('<div class="dropdown-menu"></div>');
+        const alert = $('<div class="alert alert-danger select-extend-alert" role="alert"></div>');
+        const dropdown = $('<div class="dropdown-menu"></div>').append(alert);
         const select = $('<div class="dropdown"></div>').addClass(elementContainer);
 
         $(element).find('option').each((index, option) => $(option).attr('data-index', index));

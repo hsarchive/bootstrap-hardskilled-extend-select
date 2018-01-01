@@ -21,6 +21,15 @@
       border-top: 0;
     }
 
+    .select-extend-alert {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin-bottom: 0;
+      display: none;
+    }
+
     .dropdown-item {
       overflow: hidden;
       text-overflow: ellipsis;

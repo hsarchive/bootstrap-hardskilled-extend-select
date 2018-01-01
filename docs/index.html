@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Bootstrap extended selects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
@@ -103,7 +103,11 @@
         // Class to active element
         activeClass: 'active',
         // Class to disabled element
-        disabledClass: 'disabled'
+        disabledClass: 'disabled',
+        // Custom error message for all selects (use placeholder %items)
+        maxOptionMessage: 'Max %items elements',
+        // Delay to hide message
+        maxOptionMessageDelay: 2000
     });
 &lt;/script&gt;</pre>
         </div>
@@ -207,6 +211,92 @@
             <strong>Example:</strong>
             <pre class="prettyprint">
 &lt;select id="basic2" class="form-control" multiple&gt;
+    &lt;option selected&gt;Rabbit&lt;/option&gt;
+    &lt;option&gt;Cat&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
+    &lt;optgroup label="test" data-subtext="another test"&gt;
+        &lt;option&gt;Spider&lt;/option&gt;
+        &lt;option selected&gt;Worm&lt;/option&gt;
+        &lt;option&gt;Fly&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <form role="form">
+                <div class="form-group">
+                    <label class="title" for="maxelements">Multiple with max-options</label>
+
+                    <select id="maxelements" class="form-control" multiple data-max-options="2">
+                        <option selected>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="test" data-subtext="another test">
+                            <option>Spider</option>
+                            <option selected>Worm</option>
+                            <option>Fly</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <p>To enable multiple select use the attribute: <pre class="prettyprint">multiple</pre></p>
+
+            <p>
+                To enable max options error use the attribute: <pre class="prettyprint">data-max-options="2"</pre>
+            </p>
+
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select id="basic2" class="form-control" data-max-options="2" multiple&gt;
+    &lt;option selected&gt;Rabbit&lt;/option&gt;
+    &lt;option&gt;Cat&lt;/option&gt;
+    &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
+    &lt;optgroup label="test" data-subtext="another test"&gt;
+        &lt;option&gt;Spider&lt;/option&gt;
+        &lt;option selected&gt;Worm&lt;/option&gt;
+        &lt;option&gt;Fly&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <form role="form">
+                <div class="form-group">
+                    <label class="title" for="maxelementscustomtext">Multiple with max-options and custom text</label>
+
+                    <select id="maxelementscustomtext" class="form-control" data-max-options="2" data-max-options-message="Max items" multiple>
+                        <option selected>Rabbit</option>
+                        <option>Cat</option>
+                        <option class="get-class" disabled>Owl</option>
+                        <optgroup label="test" data-subtext="another test">
+                            <option>Spider</option>
+                            <option selected>Worm</option>
+                            <option>Fly</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <p>To enable multiple select use the attribute: <pre class="prettyprint">multiple</pre></p>
+
+            <p>
+                To enable max options error use the attribute: <pre class="prettyprint">data-max-options="2"</pre>
+            </p>
+
+            <p>
+                To customise error message use the attribute: <pre class="prettyprint">data-max-options-message="Max items"</pre>
+            </p>
+
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select id="basic2" class="form-control" data-max-options="2" data-max-options-message="Max items" multiple&gt;
     &lt;option selected&gt;Rabbit&lt;/option&gt;
     &lt;option&gt;Cat&lt;/option&gt;
     &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
