@@ -109,7 +109,9 @@
         // Delay to hide message
         maxOptionMessageDelay: 2000,
         // Popover logic (resize or save height)
-        popoverResize: true
+        popoverResize: true,
+        // Auto resize dropdown by button width
+        dropdownResize: true
     });
 &lt;/script&gt;</pre>
         </div>
@@ -425,7 +427,7 @@
                     <span class="title">"Basic" (colored elements)</span>
 
                     <label for="basicColoredPrimary">btn-primary:</label>
-                    <select id="basicColoredPrimary" data-btn-class="btn-primary" class="form-control">
+                    <select id="basicColoredPrimary" data-btn-class="btn-primary btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -438,7 +440,7 @@
 
                     <label for="basicColoredSuccess">btn-success:</label>
 
-                    <select id="basicColoredSuccess" data-btn-class="btn-success" class="form-control">
+                    <select id="basicColoredSuccess" data-btn-class="btn-success btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -451,7 +453,7 @@
 
                     <label for="basicColoredInfo">btn-info:</label>
 
-                    <select id="basicColoredInfo" data-btn-class="btn-info" class="form-control">
+                    <select id="basicColoredInfo" data-btn-class="btn-info btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -464,7 +466,7 @@
 
                     <label for="basicColoredWarning">btn-warning:</label>
 
-                    <select id="basicColoredWarning" data-btn-class="btn-warning" class="form-control">
+                    <select id="basicColoredWarning" data-btn-class="btn-warning btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -477,7 +479,7 @@
 
                     <label for="basicColoredDanger">btn-danger:</label>
 
-                    <select id="basicColoredDanger" data-btn-class="btn-danger" class="form-control">
+                    <select id="basicColoredDanger" data-btn-class="btn-danger btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -492,14 +494,14 @@
         </div>
         <div class="col-md-9">
             <p>
-                To customise button use the attribute: <pre class="prettyprint">data-btn-class="btn-primary"</pre>
+                To customise button use the attribute: <pre class="prettyprint">data-btn-cla btn-blockss="btn-primary"</pre>
             </p>
             <p>
                 To default used class: <pre class="prettyprint">btn-secondary</pre>
             </p>
             <strong>Example:</strong>
             <pre class="prettyprint">
-&lt;select id="basic" data-btn-class="btn-primary" class="form-control"&gt;
+&lt;select id="basic" data-btn-class="btn-primary btn-block" cla btn-blockss="form-control"&gt;
     &lt;option&gt;Rabbit&lt;/option&gt;
     &lt;option&gt;Cat&lt;/option&gt;
     &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
@@ -517,7 +519,9 @@
 <script src="../js/select.min.js"></script>
 <script>
     jQuery('body').ready(function ($) {
-        $('select').extendSelect();
+        $('select').extendSelect({
+            dropdownResize: true
+        });
     })
 </script>
 </body>
