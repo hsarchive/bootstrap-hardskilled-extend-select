@@ -10,7 +10,15 @@
         disabledClass: 'disabled',
         maxOptionMessage: 'Limit reached (%items items max)',
         maxOptionMessageDelay: 2000,
+        popoverResize: false,
     };
+
+    function rendPopperPosition(element) {
+        if (element.attr('x-placement') !== 'top-start') return;
+
+        const elementPosition = element.outerHeight(true);
+        element.css('transform', `translate3d(0px, -${elementPosition}px, 0px)`);
+    }
 
     function rendDropdown(menu, items, disabled) {
         $(menu).find('.dropdown-header, .dropdown-item').remove();
@@ -89,7 +97,12 @@
             const filtered = select.find('option').filter(optionFilter(search));
             const elements = search ? filtered : select.children();
 
+            if (!options.popoverResize) {
+                menu.css('height', menu.outerHeight())
+            }
+
             rendDropdown(menu, elements, select.data('hide-disabled'));
+            options.popoverResize && rendPopperPosition(menu);
         }
 
         if (liveSearch) {

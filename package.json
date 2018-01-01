@@ -1,17 +1,18 @@
 {
   "name": "bootstrap-hardskilled-extend-select",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Bootstrap extended select",
   "keywords": ["bootstrap", "select", "bootstrap-4"],
   "main": "src/select.js",
   "scripts": {
     "server": "serve .",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-js && npm run build-js-minify && npm run build-css && npm run build-css-minify",
     "build-js": "babel src/select.js --out-file js/select.js",
     "build-js-minify": "babel-minify src/select.js --out-file js/select.min.js",
     "build-css": "node-sass --include-path ./scss ./scss/select.scss ./css/select.css",
     "build-css-minify": "node-sass --output-style compressed --include-path ./scss ./scss/select.scss ./css/select.min.css",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    "watch": "nodemon -e scss -e src -x \"npm run build\""
   },
   "repository": {
     "type": "git",
