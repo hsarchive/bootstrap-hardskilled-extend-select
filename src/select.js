@@ -12,6 +12,13 @@
         maxOptionMessageDelay: 2000,
     };
 
+    function rendPopperPosition(element) {
+        if (element.attr('x-placement') !== 'top-start') return;
+
+        const elementPosition = element.outerHeight(true);
+        element.css('transform', `translate3d(0px, -${elementPosition}px, 0px)`);
+    }
+
     function rendDropdown(menu, items, disabled) {
         $(menu).find('.dropdown-header, .dropdown-item').remove();
         
@@ -90,6 +97,7 @@
             const elements = search ? filtered : select.children();
 
             rendDropdown(menu, elements, select.data('hide-disabled'));
+            rendPopperPosition(menu);
         }
 
         if (liveSearch) {
