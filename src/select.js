@@ -185,9 +185,9 @@
             return;
         }
 
-        const btnClasses = $(element).data('btn-class') || 'btn-secondary';
+        const btnClasses = $(element).data('btn-class') || 'btn-block btn-secondary';
         const label = getSelectedLabel(element);
-        const button = $('<button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
+        const button = $('<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
         const alert = $('<div class="alert alert-danger select-extend-alert" role="alert"></div>');
         const dropdown = $('<div class="dropdown-menu"></div>').append(alert);
         const select = $('<div class="dropdown"></div>').addClass(elementContainer);
