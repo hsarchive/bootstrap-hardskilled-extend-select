@@ -38,7 +38,9 @@ npm i --save bootstrap-hardskilled-extend-select
         // Custom error message for all selects (use placeholder %items)
         maxOptionMessage: 'Max %items elements',
         // Delay to hide message
-        maxOptionMessageDelay: 2000
+        maxOptionMessageDelay: 2000,
+        // Popover logic (resize or save height)
+        popoverResize: true
     });
 </script>
 ```
