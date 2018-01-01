@@ -6,7 +6,8 @@
   position: relative; }
   .select-extended-element .btn {
     overflow: hidden;
-    text-overflow: ellipsis; }
+    text-overflow: ellipsis;
+    max-width: 100%; }
   .select-extended-element .dropdown-menu .select-search {
     border-radius: 0;
     border-right: 0;
