@@ -236,4 +236,8 @@
             console.error(e);
         }
     };
+
+    $.fn.onSelect = function (callback) {
+        // TODO: Add onSelect method to plugin
+    }
 })(jQuery);
