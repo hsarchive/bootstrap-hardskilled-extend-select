@@ -82,7 +82,7 @@
     }
 
     function showDropdown(event) {
-        const select = $(this).prev(`.${pureElement}`);
+        const select = $(this).next(`.${pureElement}`);
         const menu = $(this).find('.dropdown-menu');
         const button = $(this).find('.btn');
         const liveSearch = $(select).data('live-search');
@@ -132,7 +132,7 @@
     function toggleElement(event) {
         event.preventDefault();
 
-        const select = $(this).parents(2).prev(`.${pureElement}`);
+        const select = $(this).parents(2).next(`.${pureElement}`);
         const dropdown = $(this).parent();
         const multiple = select.attr('multiple');
         const maxOptions = select.data('max-options');
@@ -188,7 +188,7 @@
 
     function changeOption(select) {
         const selectElement = $(select);
-        const selectExtendedElement = $(selectElement).next(`.${elementContainer}`);
+        const selectExtendedElement = $(selectElement).prev(`.${elementContainer}`);
 
         updateElement(selectElement, selectExtendedElement);
     }
@@ -202,17 +202,18 @@
             return;
         }
 
+        const group = $(element).data('input-group') ? ' input-group-prepend' : '';
         const btnClasses = $(element).data('btn-class') || 'btn-secondary';
         const label = getSelectedLabel(element);
         const button = $('<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
         const alert = $('<div class="alert alert-danger select-extend-alert" role="alert"></div>');
         const dropdown = $('<div class="dropdown-menu"></div>').append(alert);
-        const select = $('<div class="dropdown"></div>').addClass(elementContainer);
+        const select = $('<div class="dropdown"></div>').addClass(elementContainer + group);
 
         $(element).find('option').each((index, option) => $(option).attr('data-index', index));
 
         $(element).addClass(pureElement);
-        $(element).after(select.append(button.text(label), dropdown));
+        $(element).before(select.append(button.text(label), dropdown));
     }
 
     $('body').on('click', `.${elementContainer} .dropdown-menu > *`, toggleElement).on('show.bs.dropdown', `.${elementContainer}`, showDropdown).on('hide.bs.dropdown', `.${elementContainer}`, hideDropdown).on('change', `.${pureElement}`, function () {
@@ -230,5 +231,9 @@
         } catch (e) {
             console.error(e);
         }
+    };
+
+    $.fn.onSelect = function (callback) {
+        // TODO: Add onSelect method to plugin
     };
 })(jQuery);

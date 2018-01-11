@@ -45,29 +45,31 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse bg-primary navbar-toggleable-md">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Bootstrap extended select</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/">Docs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases">Download</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select">GitHub</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://hardskilled.com">Hardskilled Team</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://www.upwork.com/o/companies/_~01b5cde52d5f4ead84/">Hire Us</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Extended Select for Bootstrap 4</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/">Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select">GitHub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://hardskilled.com">Hardskilled Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.upwork.com/o/companies/_~01b5cde52d5f4ead84/">Hire Us</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -494,14 +496,14 @@
         </div>
         <div class="col-md-9">
             <p>
-                To customise button use the attribute: <pre class="prettyprint">data-btn-cla btn-blockss="btn-primary"</pre>
+                To customise button use the attribute: <pre class="prettyprint">data-btn-class="btn-danger btn-block"</pre>
             </p>
             <p>
                 To default used class: <pre class="prettyprint">btn-secondary</pre>
             </p>
             <strong>Example:</strong>
             <pre class="prettyprint">
-&lt;select id="basic" data-btn-class="btn-primary btn-block" cla btn-blockss="form-control"&gt;
+&lt;select id="basic" data-btn-class="btn-danger btn-block" class="form-control"&gt;
     &lt;option&gt;Rabbit&lt;/option&gt;
     &lt;option&gt;Cat&lt;/option&gt;
     &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
@@ -511,6 +513,55 @@
         &lt;option selected&gt;Fly&lt;/option&gt;
     &lt;/optgroup&gt;
 &lt;/select&gt;</pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <form role="form">
+                <div class="form-group">
+                    <span class="title">Input Groups</span>
+
+                    <label for="inputGroups">btn-primary:</label>
+
+                    <div class="input-group mb-3">
+                        <select id="inputGroups" data-btn-class="btn-primary" data-input-group="true" class="form-control">
+                            <option>Rabbit</option>
+                            <option>Cat</option>
+                            <option class="get-class" disabled>Owl</option>
+                            <optgroup label="Insects">
+                                <option>Spider</option>
+                                <option>Worm</option>
+                                <option selected>Fly</option>
+                            </optgroup>
+                        </select>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <p>
+                To customise button use the attribute: <pre class="prettyprint">data-btn-class="btn-primary"</pre>
+            </p>
+            <p>
+                To add "input-group-prepend" class for dropdown: <pre class="prettyprint">data-input-group="true"</pre>
+            </p>
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;div class="input-group mb-3"&gt;
+    &lt;select id="inputGroups" data-btn-class="btn-primary" data-input-group="true" class="form-control"&gt;
+        &lt;option&gt;Rabbit&lt;/option&gt;
+        &lt;option&gt;Cat&lt;/option&gt;
+        &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
+        &lt;optgroup label="Insects"&gt;
+            &lt;option&gt;Spider&lt;/option&gt;
+            &lt;option&gt;Worm&lt;/option&gt;
+            &lt;option selected&gt;Fly&lt;/option&gt;
+        &lt;/optgroup&gt;
+    &lt;/select&gt;
+    &lt;input type="text" class="form-control" aria-label="Text input with dropdown button"&gt;
+&lt;/div&gt;</pre>
         </div>
     </div>
 </div>

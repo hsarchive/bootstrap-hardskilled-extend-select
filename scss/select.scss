@@ -6,6 +6,10 @@
   text-overflow: ellipsis;
   position: relative;
 
+  &.input-group-prepend {
+    margin-bottom: initial;
+  }
+
   .btn {
     overflow: hidden;
     text-overflow: ellipsis;

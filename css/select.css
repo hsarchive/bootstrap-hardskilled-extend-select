@@ -4,6 +4,8 @@
 .select-extended-element {
   text-overflow: ellipsis;
   position: relative; }
+  .select-extended-element.input-group-prepend {
+    margin-bottom: initial; }
   .select-extended-element .btn {
     overflow: hidden;
     text-overflow: ellipsis;
