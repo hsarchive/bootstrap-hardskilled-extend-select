@@ -164,7 +164,7 @@
             dropdown.find(`.${options.activeClass}`).removeClass(options.activeClass);
         }
 
-        $(option).attr('selected', !$(option).attr('selected'));
+        $(option).attr('selected', !$(option).attr('selected')).trigger("change");
         $(this).toggleClass(options.activeClass);
 
         changeOption(select);
