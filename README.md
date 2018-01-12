@@ -1,6 +1,6 @@
 # Bootstrap extended select 
 
-[![npm version](https://badge.fury.io/js/bootstrap-hardskilled-extend-select.svg)](https://badge.fury.io/js/bootstrap-hardskilled-extend-select) [![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge?style=rounded)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/bootstrap-hardskilled-extend-select.svg)](https://badge.fury.io/js/bootstrap-hardskilled-extend-select) [![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge?style=rounded)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/hardskilled/bootstrap-hardskilled-extend-select/blob/master/LICENSE)
 
 ## [Demo and documentation](https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/)
 
@@ -13,8 +13,8 @@ npm i --save bootstrap-hardskilled-extend-select
 
 **To use CDN:**
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/css/select.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/js/select.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@latest/css/select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@latest/js/select.min.js"></script>
 ```
 
 **Example usage:**
