@@ -1,4 +1,6 @@
-# Bootstrap extended select [![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select)
+# Bootstrap extended select 
+
+[![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select)
 
 ## [Demo and documentation](https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/)
 
