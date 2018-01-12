@@ -47,4 +47,12 @@ npm i --save bootstrap-hardskilled-extend-select
 </script>
 ```
 
+**To listen changes use .on('change') event:**
+```javascript
+$('select#basic').on('change', function () {
+    const selected = $(this).find(':selected').text();
+    $('#basicResult').text('Selected: ' + selected)
+})
+```
+
 [Hire us via Upwork!](https://www.upwork.com/o/companies/_~01b5cde52d5f4ead84/) | [Our website](https://hardskilled.com)

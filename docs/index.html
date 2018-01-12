@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bootstrap extended selects</title>
+    <title>Extended Select for Bootstrap 4 (analog bootstrap-select)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -45,35 +45,37 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse bg-primary navbar-toggleable-md">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Bootstrap extended select</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/">Docs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases">Download</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select">GitHub</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://hardskilled.com">Hardskilled Team</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://www.upwork.com/o/companies/_~01b5cde52d5f4ead84/">Hire Us</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Extended Select for Bootstrap 4</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/">Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select">GitHub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://hardskilled.com">Hardskilled Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.upwork.com/o/companies/_~01b5cde52d5f4ead84/">Hire Us</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <p>You can require bootstrap plugin via cdn or <a href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases">download</a> the archive with release and unzip into assets directory.</p>
             <p>For install via npm, use command: <pre class="prettyprint">npm i --save bootstrap-hardskilled-extend-select</pre></p>
             <strong>Example usage:</strong>
@@ -83,11 +85,17 @@
 &lt;script&gt;
     $('select').extendSelect();
 &lt;/script&gt;</pre>
+            <strong>To listen changes use .on('change') event:</strong>
+            <pre class="prettyprint">
+$('select#basic').on('change', function () {
+    const selected = $(this).find(':selected').text();
+    $('#basicResult').text('Selected: ' + selected)
+})</pre>
             <div class="center">
                 <a href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/issues/new" class="btn btn-success">Create Issue or request features</a>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <strong>Usage with options:</strong>
             <pre class="prettyprint">
 &lt;link rel="stylesheet" href="../select.min.css"&gt;
@@ -118,7 +126,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form role="form">
                 <div class="form-group">
                     <label class="title" for="basic">"Basic" (liveSearch disabled)</label>
@@ -136,7 +144,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <strong>Example:</strong>
             <pre class="prettyprint">
 &lt;select id="basic" class="form-control"&gt;
@@ -153,7 +161,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form role="form">
                 <div class="form-group">
                     <label class="title" for="basic-live">"Basic" (liveSearch enabled)</label>
@@ -170,7 +178,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <p>
                 To enable live search on select use the attribute: <pre class="prettyprint">data-live-search="true"</pre>
             </p>
@@ -191,7 +199,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form role="form">
                 <div class="form-group">
                     <label class="title" for="basic2">"Basic" (multiple)</label>
@@ -209,7 +217,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <p>To enable multiple select use the attribute: <pre class="prettyprint">multiple</pre></p>
 
             <strong>Example:</strong>
@@ -228,7 +236,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form role="form">
                 <div class="form-group">
                     <label class="title" for="maxelements">Multiple with max-options</label>
@@ -246,7 +254,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <p>To enable multiple select use the attribute: <pre class="prettyprint">multiple</pre></p>
 
             <p>
@@ -269,7 +277,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form role="form">
                 <div class="form-group">
                     <label class="title" for="maxelementscustomtext">Multiple with max-options and custom text</label>
@@ -287,7 +295,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <p>To enable multiple select use the attribute: <pre class="prettyprint">multiple</pre></p>
 
             <p>
@@ -314,7 +322,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form role="search">
                 <div class="form-group">
                     <select multiple data-live-search="true" data-live-search-placeholder="Find">
@@ -340,7 +348,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <p>
                 To enable live search on select use the attribute: <pre class="prettyprint">data-live-search="true"</pre>
             </p>
@@ -376,7 +384,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form>
                 <div class="form-group">
                     <select id="first-disabled" data-hide-disabled="true" data-live-search="true">
@@ -395,7 +403,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <p>
                 To enable live search on select use the attribute: <pre class="prettyprint">data-live-search="true"</pre>
             </p>
@@ -421,7 +429,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <form role="form">
                 <div class="form-group">
                     <span class="title">"Basic" (colored elements)</span>
@@ -492,16 +500,16 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9">
             <p>
-                To customise button use the attribute: <pre class="prettyprint">data-btn-cla btn-blockss="btn-primary"</pre>
+                To customise button use the attribute: <pre class="prettyprint">data-btn-class="btn-danger btn-block"</pre>
             </p>
             <p>
                 To default used class: <pre class="prettyprint">btn-secondary</pre>
             </p>
             <strong>Example:</strong>
             <pre class="prettyprint">
-&lt;select id="basic" data-btn-class="btn-primary btn-block" cla btn-blockss="form-control"&gt;
+&lt;select id="basic" data-btn-class="btn-danger btn-block" class="form-control"&gt;
     &lt;option&gt;Rabbit&lt;/option&gt;
     &lt;option&gt;Cat&lt;/option&gt;
     &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
@@ -511,6 +519,55 @@
         &lt;option selected&gt;Fly&lt;/option&gt;
     &lt;/optgroup&gt;
 &lt;/select&gt;</pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <form role="form">
+                <div class="form-group">
+                    <span class="title">Input Groups</span>
+
+                    <label for="inputGroups">btn-primary:</label>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                        <select id="inputGroups" data-btn-class="btn-primary" data-input-group="true" class="form-control">
+                            <option>Rabbit</option>
+                            <option>Cat</option>
+                            <option class="get-class" disabled>Owl</option>
+                            <optgroup label="Insects">
+                                <option>Spider</option>
+                                <option>Worm</option>
+                                <option selected>Fly</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-9">
+            <p>
+                To customise button use the attribute: <pre class="prettyprint">data-btn-class="btn-primary"</pre>
+            </p>
+            <p>
+                To add "input-group-prepend" class for dropdown: <pre class="prettyprint">data-input-group="true"</pre>
+            </p>
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;div class="input-group mb-3"&gt;
+    &lt;select id="inputGroups" data-btn-class="btn-primary" data-input-group="true" class="form-control"&gt;
+        &lt;option&gt;Rabbit&lt;/option&gt;
+        &lt;option&gt;Cat&lt;/option&gt;
+        &lt;option class="get-class" disabled&gt;Owl&lt;/option&gt;
+        &lt;optgroup label="Insects"&gt;
+            &lt;option&gt;Spider&lt;/option&gt;
+            &lt;option&gt;Worm&lt;/option&gt;
+            &lt;option selected&gt;Fly&lt;/option&gt;
+        &lt;/optgroup&gt;
+    &lt;/select&gt;
+    &lt;input type="text" class="form-control" aria-label="Text input with dropdown button"&gt;
+&lt;/div&gt;</pre>
         </div>
     </div>
 </div>
