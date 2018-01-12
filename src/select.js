@@ -216,7 +216,7 @@
         $(element).addClass(pureElement);
         $(element).before(select.append(button.text(label), dropdown));
 
-        if (group !== '') {
+        if ($(element).data('input-group')) {
             $(element).parent().children(':visible:last').addClass(lastElement)
         }
     }
