@@ -80,8 +80,8 @@
             <p>For install via npm, use command: <pre class="prettyprint">npm i --save bootstrap-hardskilled-extend-select</pre></p>
             <strong>Example usage:</strong>
             <pre class="prettyprint">
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/css/select.min.css"&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/src/select.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="css/select.min.css"&gt;
+&lt;script src="js/select.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('select').extendSelect();
 &lt;/script&gt;</pre>
@@ -91,6 +91,10 @@ $('select#basic').on('change', function () {
     const selected = $(this).find(':selected').text();
     $('#basicResult').text('Selected: ' + selected)
 })</pre>
+            <storng>To use CDN:</storng>
+            <pre class="prettyprint">
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/css/select.min.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/js/select.min.js"&gt;&lt;/script&gt;</pre>
             <div class="center">
                 <a href="https://github.com/hardskilled/bootstrap-hardskilled-extend-select/issues/new" class="btn btn-success">Create Issue or request features</a>
             </div>
@@ -98,8 +102,8 @@ $('select#basic').on('change', function () {
         <div class="col-lg-6">
             <strong>Usage with options:</strong>
             <pre class="prettyprint">
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/css/select.min.css"&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/src/select.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="css/select.min.css"&gt;
+&lt;script src="js/select.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     $('select').extendSelect({
         // Search input placeholder:
@@ -572,8 +576,8 @@ $('select#basic').on('change', function () {
     </div>
 </div>
 
-<link rel="stylesheet" href="../css/select.min.css">
-<script src="../js/select.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/css/select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/js/select.min.js"></script>
 <script>
     jQuery('body').ready(function ($) {
         $('select').extendSelect({
