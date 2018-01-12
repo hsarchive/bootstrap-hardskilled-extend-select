@@ -21,8 +21,8 @@ npm i --save bootstrap-hardskilled-extend-select
 
 **Usage with options:**
 ```html
-<link rel="stylesheet" href="../select.min.css">
-<script src="./select.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/css/select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1.1.1/src/select.min.js"></script>
 <script>
     $('select').extendSelect({
         // Search input placeholder:
