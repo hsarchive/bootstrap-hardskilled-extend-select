@@ -1,4 +1,6 @@
-# Bootstrap extended select [![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select)
+# Bootstrap extended select 
+
+[![npm version](https://badge.fury.io/js/bootstrap-hardskilled-extend-select.svg)](https://badge.fury.io/js/bootstrap-hardskilled-extend-select) [![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge?style=rounded)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## [Demo and documentation](https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/)
 
