@@ -2,6 +2,7 @@
   display: none; }
 
 .select-last-element {
+  overflow: hidden;
   border-top-right-radius: .25rem;
   border-bottom-right-radius: .25rem; }
 
