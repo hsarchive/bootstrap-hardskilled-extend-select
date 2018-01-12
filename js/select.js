@@ -2,6 +2,7 @@
     const elementContainer = 'select-extended-element';
     const pureElement = 'select-extend';
     const selectSearch = 'select-search';
+    const lastElement = 'select-last-element';
     let options = {
         search: 'Search',
         notSelectedTitle: 'Nothing to shown',
@@ -26,7 +27,7 @@
 
         const appendItem = element => {
             const label = element.innerText;
-            const item = $('<a href="#" class="dropdown-item"></a>').text(label);
+            const item = $('<a href="#" class="dropdown-item" />').text(label);
 
             item.attr('data-index', $(element).data('index'));
 
@@ -43,12 +44,12 @@
 
         const appendHeader = element => {
             const label = $(element).attr('label');
-            const item = $('<span class="dropdown-header"></span>').text(label);
+            const item = $('<span class="dropdown-header"/>').text(label);
             menu.append(item);
         };
 
         const appendNotSownElement = () => {
-            const item = $('<span class="dropdown-header"></span>').text(options.empty);
+            const item = $('<span class="dropdown-header"/>').text(options.empty);
             menu.append(item);
         };
 
@@ -205,15 +206,20 @@
         const group = $(element).data('input-group') ? ' input-group-prepend' : '';
         const btnClasses = $(element).data('btn-class') || 'btn-secondary';
         const label = getSelectedLabel(element);
-        const button = $('<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>').addClass(btnClasses);
-        const alert = $('<div class="alert alert-danger select-extend-alert" role="alert"></div>');
-        const dropdown = $('<div class="dropdown-menu"></div>').append(alert);
-        const select = $('<div class="dropdown"></div>').addClass(elementContainer + group);
+        const button = $('<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>').addClass(btnClasses);
+        const alert = $('<div class="alert alert-danger select-extend-alert" role="alert"/>');
+        const dropdown = $('<div class="dropdown-menu"/>').append(alert);
+        const select = $('<div class="dropdown"/>').addClass(elementContainer + group);
 
         $(element).find('option').each((index, option) => $(option).attr('data-index', index));
 
         $(element).addClass(pureElement);
         $(element).before(select.append(button.text(label), dropdown));
+
+        if (group !== '') {
+            console.log($(element).parents(2).children(':visible:last'), $(element));
+            $(element).parent().children(':visible:last').addClass(lastElement);
+        }
     }
 
     $('body').on('click', `.${elementContainer} .dropdown-menu > *`, toggleElement).on('show.bs.dropdown', `.${elementContainer}`, showDropdown).on('hide.bs.dropdown', `.${elementContainer}`, hideDropdown).on('change', `.${pureElement}`, function () {
@@ -231,9 +237,5 @@
         } catch (e) {
             console.error(e);
         }
-    };
-
-    $.fn.onSelect = function (callback) {
-        // TODO: Add onSelect method to plugin
     };
 })(jQuery);
