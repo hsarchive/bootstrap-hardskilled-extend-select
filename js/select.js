@@ -217,7 +217,6 @@
         $(element).before(select.append(button.text(label), dropdown));
 
         if (group !== '') {
-            console.log($(element).parents(2).children(':visible:last'), $(element));
             $(element).parent().children(':visible:last').addClass(lastElement);
         }
     }
