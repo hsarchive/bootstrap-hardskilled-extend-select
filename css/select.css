@@ -1,10 +1,9 @@
 .select-extend {
   display: none; }
 
-.select-last-element {
-  overflow: hidden;
-  border-top-right-radius: .25rem;
-  border-bottom-right-radius: .25rem; }
+.select-last-element .btn {
+  border-top-right-radius: .25rem !important;
+  border-bottom-right-radius: .25rem !important; }
 
 .select-extended-element {
   text-overflow: ellipsis;
