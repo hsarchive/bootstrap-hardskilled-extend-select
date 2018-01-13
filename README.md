@@ -13,8 +13,8 @@ npm i --save bootstrap-hardskilled-extend-select
 
 **To use CDN:**
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@latest/css/select.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@latest/js/select.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1/css/select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1/js/select.min.js"></script>
 ```
 
 **Example usage:**
