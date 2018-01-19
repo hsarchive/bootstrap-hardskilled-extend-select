@@ -13,12 +13,11 @@ npm i --save bootstrap-hardskilled-extend-select
 
 **To use CDN:**
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1/css/select.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1/js/select.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@latest/css/select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@latest/js/select.min.js"></script>
 ```
 
 **Example usage:**
-
 ```html
 <link rel="stylesheet" href="css/select.min.css">
 <script src="js/select.min.js"></script>
@@ -102,7 +101,7 @@ $('select#basic').on('change', function () {
 
 | Attribute | Description | Default value |
 | --- | --- | --- |
-| data-live-search | Live search | false |
+| data-live-search | Live search | `false` |
 | data-max-options | Max selected options | Nothing to shown |
 | data-max-options-message | Message if select limit overflow | Nothing to shown |
 | data-live-search-placeholder | Search input placeholder | Search |
