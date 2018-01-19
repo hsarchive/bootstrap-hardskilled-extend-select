@@ -579,6 +579,37 @@ $('select#basic').on('change', function () {
 &lt;/div&gt;</pre>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <form>
+                <div class="form-group">
+                    <select id="empty" data-live-search="true" data-btn-class="btn-info btn-block" data-not-selected="Select is empty" data-empty="Items not found">
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-9">
+            <p>
+                To enable live search on select use the attribute: <pre class="prettyprint">data-live-search="true"</pre>
+            </p>
+            <p>
+                Override "notSelectedTitle" option into special select: <pre class="prettyprint">data-not-selected="Select is empty"</pre>
+            </p>
+            <p>
+                Override "empty" option into special select: <pre class="prettyprint">data-empty="Items not found"</pre>
+            </p>
+            <strong>Example:</strong>
+            <pre class="prettyprint">
+&lt;select
+    id="empty"
+    data-btn-class="btn-info btn-block"
+    data-live-search="true"
+    data-not-selected="Select is empty"
+    data-empty="Items not found"
+&gt;&lt;/select&gt;</pre>
+        </div>
+    </div>
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-hardskilled-extend-select@1/css/select.min.css">
