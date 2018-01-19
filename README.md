@@ -86,6 +86,8 @@ $('select#basic').on('change', function () {
     data-hide-disabled="true"
     data-btn-class="btn-danger btn-block"
     data-input-group="true"
+    data-not-selected="Select is empty"
+    data-empty="Items not found"
     multiple
 >
     <option selected>Rabbit</option>
@@ -103,11 +105,12 @@ $('select#basic').on('change', function () {
 | --- | --- | --- |
 | data-live-search | Live search | `false` |
 | data-max-options | Max selected options | Nothing to shown |
-| data-max-options-message | Message if select limit overflow | Nothing to shown |
+| data-max-options-message | Message if select limit overflow | Limit reached (%items items max) |
 | data-live-search-placeholder | Search input placeholder | Search |
 | data-hide-disabled | Hide disabled elements | `false` |
 | data-btn-class | Button class for dropdown | btn-secondary |
-| data-input-group | Change dropdown layout to input-group comportable | `false` |
+| data-not-selected | Title if option not selected | Nothing to shown |
+| data-empty | Message if select list empty | Nothing to shown |
 | multiple | Enable multiple selections | `false` |
 
 
