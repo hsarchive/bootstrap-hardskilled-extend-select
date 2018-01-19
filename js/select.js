@@ -22,7 +22,7 @@
         element.css('transform', `translate3d(0px, -${elementPosition}px, 0px)`);
     }
 
-    function rendDropdown(menu, items, disabled) {
+    function rendDropdown(menu, items, select) {
         $(menu).find('.dropdown-header, .dropdown-item').remove();
 
         const appendItem = element => {
@@ -49,13 +49,15 @@
         };
 
         const appendNotSownElement = () => {
-            const item = $('<span class="dropdown-header"/>').text(options.empty);
+            const empty = select.data('empty') || options.empty;
+            console.log(empty, select.data('empty'), options.empty);
+            const item = $('<span class="dropdown-header"/>').text(empty);
             menu.append(item);
         };
 
         const randElements = elements => {
             $(elements).each((index, element) => {
-                if (disabled && $(element).is(':disabled')) {
+                if (select.data('hide-disabled') && $(element).is(':disabled')) {
                     return;
                 }
 
@@ -72,7 +74,7 @@
             });
         };
 
-        items = items.filter((index, item) => disabled ? $(item).is(':enabled') : true);
+        items = items.filter((index, item) => select.data('hide-disabled') ? $(item).is(':enabled') : true);
 
         if (items.length === 0) {
             appendNotSownElement();
@@ -104,7 +106,7 @@
                 menu.css('height', menu.outerHeight());
             }
 
-            rendDropdown(menu, elements, select.data('hide-disabled'));
+            rendDropdown(menu, elements, select);
             options.popoverResize && rendPopperPosition(menu);
         }
 
@@ -118,7 +120,7 @@
             menu.find(`.${selectSearch}`).on('input', changeSearch);
         }
 
-        rendDropdown(menu, select.children(), select.data('hide-disabled'));
+        rendDropdown(menu, select.children(), select);
         setTimeout(() => $('[autofocus]', event.target).focus(), 100);
 
         if (options.dropdownResize) {
@@ -174,12 +176,13 @@
     function getSelectedLabel(element) {
         const selected = $(element).find("option:selected");
         const selectedArray = [];
+        const notSelectedTitle = $(element).data('not-selected') || options.notSelectedTitle;
 
         selected.each((index, option) => {
             selectedArray.push(option.innerText);
         });
 
-        return selected.length !== 0 ? selectedArray.join(', ') : options.notSelectedTitle;
+        return selected.length !== 0 ? selectedArray.join(', ') : notSelectedTitle;
     }
 
     function updateElement(select, extended) {
