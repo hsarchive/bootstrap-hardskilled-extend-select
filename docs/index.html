@@ -18,7 +18,7 @@
             margin-bottom: 20px;
         }
 
-        .title {
+        h6 {
             display: block;
             font-weight: bold;
         }
@@ -136,10 +136,9 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-basic">"Basic" (liveSearch disabled)</h6>
             <form role="form">
                 <div class="form-group">
-                    <label class="title" for="basic">"Basic" (liveSearch disabled)</label>
-
                     <select id="basic" class="form-control">
                         <option selected>Rabbit</option>
                         <option>Cat</option>
@@ -171,9 +170,9 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-basic-live">"Basic" (liveSearch enabled)</h6>
             <form role="form">
                 <div class="form-group">
-                    <label class="title" for="basic-live">"Basic" (liveSearch enabled)</label>
                     <select id="basic-live" class="form-control" data-live-search="true">
                         <option>Rabbit</option>
                         <option selected>Cat</option>
@@ -209,11 +208,10 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-basic-multiple">"Basic" (multiple)</h6>
             <form role="form">
                 <div class="form-group">
-                    <label class="title" for="basic2">"Basic" (multiple)</label>
-
-                    <select id="basic2" class="form-control" multiple>
+                    <select id="basic-multiple" class="form-control" multiple>
                         <option selected>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -246,11 +244,10 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-max-elements">Multiple with max-options</h6>
             <form role="form">
                 <div class="form-group">
-                    <label class="title" for="maxelements">Multiple with max-options</label>
-
-                    <select id="maxelements" class="form-control" multiple data-max-options="2">
+                    <select id="max-elements" class="form-control" multiple data-max-options="2">
                         <option selected>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -287,11 +284,10 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 for="section-max-elements-custom-text">Multiple with max-options and custom text</h6>
             <form role="form">
                 <div class="form-group">
-                    <label class="title" for="maxelementscustomtext">Multiple with max-options and custom text</label>
-
-                    <select id="maxelementscustomtext" class="form-control" data-max-options="2" data-max-options-message="Max items" multiple>
+                    <select id="max-elements-custom-text" class="form-control" data-max-options="2" data-max-options-message="Max items" multiple>
                         <option selected>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -332,6 +328,7 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-search-placeholder">Live search placeholder</h6>
             <form role="search">
                 <div class="form-group">
                     <select multiple data-live-search="true" data-live-search-placeholder="Find">
@@ -394,6 +391,7 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-disabled">Hidden disabled elements</h6>
             <form>
                 <div class="form-group">
                     <select id="first-disabled" data-hide-disabled="true" data-live-search="true">
@@ -439,12 +437,12 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-basic-colored">"Basic" (colored elements)</h6>
+
             <form role="form">
                 <div class="form-group">
-                    <span class="title">"Basic" (colored elements)</span>
-
-                    <label for="basicColoredPrimary">btn-primary:</label>
-                    <select id="basicColoredPrimary" data-btn-class="btn-primary btn-block" class="form-control">
+                    <label for="basic-colored-primary">btn-primary:</label>
+                    <select id="basic-colored-primary" data-btn-class="btn-primary btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -455,9 +453,9 @@ $('select#basic').on('change', function () {
                         </optgroup>
                     </select>
 
-                    <label for="basicColoredSuccess">btn-success:</label>
+                    <label for="basic-colored-success">btn-success:</label>
 
-                    <select id="basicColoredSuccess" data-btn-class="btn-success btn-block" class="form-control">
+                    <select id="basic-colored-success" data-btn-class="btn-success btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -468,9 +466,9 @@ $('select#basic').on('change', function () {
                         </optgroup>
                     </select>
 
-                    <label for="basicColoredInfo">btn-info:</label>
+                    <label for="basic-colored-info">btn-info:</label>
 
-                    <select id="basicColoredInfo" data-btn-class="btn-info btn-block" class="form-control">
+                    <select id="basic-colored-info" data-btn-class="btn-info btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -481,9 +479,9 @@ $('select#basic').on('change', function () {
                         </optgroup>
                     </select>
 
-                    <label for="basicColoredWarning">btn-warning:</label>
+                    <label for="basic-colored-warning">btn-warning:</label>
 
-                    <select id="basicColoredWarning" data-btn-class="btn-warning btn-block" class="form-control">
+                    <select id="basic-colored-warning" data-btn-class="btn-warning btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -494,9 +492,9 @@ $('select#basic').on('change', function () {
                         </optgroup>
                     </select>
 
-                    <label for="basicColoredDanger">btn-danger:</label>
+                    <label for="basic-colored-danger">btn-danger:</label>
 
-                    <select id="basicColoredDanger" data-btn-class="btn-danger btn-block" class="form-control">
+                    <select id="basic-colored-danger" data-btn-class="btn-danger btn-block" class="form-control">
                         <option>Rabbit</option>
                         <option>Cat</option>
                         <option class="get-class" disabled>Owl</option>
@@ -533,15 +531,14 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-input-group">Input Groups</h6>
             <form role="form">
                 <div class="form-group">
-                    <span class="title">Input Groups</span>
-
-                    <label for="inputGroups">btn-primary:</label>
+                    <label for="input-group">btn-primary:</label>
 
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                        <select id="inputGroups" data-btn-class="btn-primary" data-input-group="true" class="form-control">
+                        <select id="input-group" data-btn-class="btn-primary" data-input-group="true" class="form-control">
                             <option>Rabbit</option>
                             <option>Cat</option>
                             <option class="get-class" disabled>Owl</option>
@@ -582,6 +579,7 @@ $('select#basic').on('change', function () {
 
     <div class="row">
         <div class="col-lg-3">
+            <h6 id="section-override">Override empty labels</h6>
             <form>
                 <div class="form-group">
                     <select id="empty" data-live-search="true" data-btn-class="btn-info btn-block" data-not-selected="Select is empty" data-empty="Items not found">

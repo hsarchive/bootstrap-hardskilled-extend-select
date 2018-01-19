@@ -39,21 +39,33 @@ npm i --save bootstrap-hardskilled-extend-select
         notSelectedTitle: 'Pls select',
         // Message if select list empty:
         empty: 'Empty',
-        // Class to active element
+        // Class to active element:
         activeClass: 'active',
-        // Class to disabled element
+        // Class to disabled element:
         disabledClass: 'disabled',
-        // Custom error message for all selects (use placeholder %items)
+        // Custom error message for all selects (use placeholder %items):
         maxOptionMessage: 'Max %items elements',
         // Delay to hide message
         maxOptionMessageDelay: 2000,
-        // Popover logic (resize or save height)
+        // Popover logic (resize or save height):
         popoverResize: true,
-        // Auto resize dropdown by button width
+        // Auto resize dropdown by button width:
         dropdownResize: true
     });
 </script>
 ```
+
+| Key | Description | Default value |
+| --- | --- | --- |
+| search | Search input placeholder | Search |
+| notSelectedTitle | Title if option not selected | Nothing to shown |
+| empty | Message if select list empty | Nothing to shown |
+| activeClass | Class to active element | `active` |
+| disabledClass | Class to disabled element | `diabled` |
+| maxOptionMessage | Custom error message for all selects (use placeholder %items) | Limit reached (%items items max) |
+| maxOptionMessageDelay | Delay to hide message | 2000 |
+| popoverResize | Popover logic (resize or save height) | `false` |
+| dropdownResize | Auto resize dropdown by button width | `false` |
 
 **To listen changes use .on('change') event:**
 ```javascript
@@ -62,5 +74,42 @@ $('select#basic').on('change', function () {
     $('#basicResult').text('Selected: ' + selected)
 })
 ```
+
+**HTML attributes to select:**
+```html
+<select 
+    id="extendedSelect" 
+    class="form-control" 
+    data-live-search="true"
+    data-max-options="2"
+    data-max-options-message="Max items"
+    data-live-search-placeholder="Find"
+    data-hide-disabled="true"
+    data-btn-class="btn-danger btn-block"
+    data-input-group="true"
+    multiple
+>
+    <option selected>Rabbit</option>
+    <option>Cat</option>
+    <option class="get-class" disabled>Owl</option>
+    <optgroup label="test" data-subtext="another test">
+        <option>Spider</option>
+        <option selected>Worm</option>
+        <option>Fly</option>
+    </optgroup>
+</select>
+```
+
+| Attribute | Description | Default value |
+| --- | --- | --- |
+| data-live-search | Live search | false |
+| data-max-options | Max selected options | Nothing to shown |
+| data-max-options-message | Message if select limit overflow | Nothing to shown |
+| data-live-search-placeholder | Search input placeholder | Search |
+| data-hide-disabled | Hide disabled elements | `false` |
+| data-btn-class | Button class for dropdown | btn-secondary |
+| data-input-group | Change dropdown layout to input-group comportable | `false` |
+| multiple | Enable multiple selections | `false` |
+
 
 [Hire us via Upwork!](https://www.upwork.com/o/companies/_~01b5cde52d5f4ead84/) | [Our website](https://hardskilled.com)
