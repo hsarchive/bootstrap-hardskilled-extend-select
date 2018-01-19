@@ -13,6 +13,33 @@
   text-overflow: ellipsis;
   position: relative;
 
+  &.select-checkbox {
+    .active {
+      background: none;
+      position: relative;
+      color: #212529;
+
+      &:before {
+        content: '';
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiI+ICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xLjg2LDYuNDUsTDUuMDUsMTAuNjQsTDEzLjUsMi4yOSI+PC9wYXRoPjwvc3ZnPg==);
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 4px;
+        top: 8px;
+      }
+    }
+
+    .dropdown-menu {
+      .dropdown-item {
+        &:active {
+          color: #212529;
+          background: #fff;
+        }
+      }
+    }
+  }
+
   &.input-group-prepend {
     margin-bottom: initial;
   }

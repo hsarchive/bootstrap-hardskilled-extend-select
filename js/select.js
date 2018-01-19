@@ -50,7 +50,6 @@
 
         const appendNotSownElement = () => {
             const empty = select.data('empty') || options.empty;
-            console.log(empty, select.data('empty'), options.empty);
             const item = $('<span class="dropdown-header"/>').text(empty);
             menu.append(item);
         };
@@ -206,13 +205,15 @@
             return;
         }
 
-        const group = $(element).data('input-group') ? ' input-group-prepend' : '';
+        const type = $(element).data('type') ? `select-${$(element).data('type')}` : '';
+        const group = $(element).data('input-group') ? 'input-group-prepend' : '';
         const btnClasses = $(element).data('btn-class') || 'btn-secondary';
         const label = getSelectedLabel(element);
         const button = $('<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>').addClass(btnClasses);
         const alert = $('<div class="alert alert-danger select-extend-alert" role="alert"/>');
         const dropdown = $('<div class="dropdown-menu"/>').append(alert);
-        const select = $('<div class="dropdown"/>').addClass(elementContainer + group);
+        const types = [elementContainer, group, type].join(' ');
+        const select = $('<div class="dropdown"/>').addClass(types);
 
         $(element).find('option').each((index, option) => $(option).attr('data-index', index));
 

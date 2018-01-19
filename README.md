@@ -88,6 +88,7 @@ $('select#basic').on('change', function () {
     data-input-group="true"
     data-not-selected="Select is empty"
     data-empty="Items not found"
+    data-type="checkbox"
     multiple
 >
     <option selected>Rabbit</option>
@@ -111,6 +112,7 @@ $('select#basic').on('change', function () {
 | data-btn-class | Button class for dropdown | btn-secondary |
 | data-not-selected | Title if option not selected | Nothing to shown |
 | data-empty | Message if select list empty | Nothing to shown |
+| data-type | Custom select type (ex. checkbox) | `null` |
 | multiple | Enable multiple selections | `false` |
 
 
