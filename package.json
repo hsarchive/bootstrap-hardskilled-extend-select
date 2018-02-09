@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-hardskilled-extend-select",
   "version": "1.2.2",
-  "description": "Extended Select for Bootstrap 4 (analog bootstrap-select)",
+  "description": "Extended Select for Bootstrap 4 (alternative bootstrap-select)",
   "keywords": ["bootstrap", "select", "bootstrap-4", "jquery"],
   "main": "src/select.js",
   "scripts": {
