@@ -1,6 +1,6 @@
 # Extended Select for Bootstrap 4 (analog bootstrap-select)
 
-[![npm version](https://badge.fury.io/js/bootstrap-hardskilled-extend-select.svg)](https://badge.fury.io/js/bootstrap-hardskilled-extend-select) [![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge?style=rounded)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/hardskilled/bootstrap-hardskilled-extend-select/blob/master/LICENSE)
+[![release version](https://img.shields.io/github/release/hardskilled/bootstrap-hardskilled-extend-select.svg)](https://github.com/hardskilled/bootstrap-hardskilled-extend-select/releases) [![npm version](https://badge.fury.io/js/bootstrap-hardskilled-extend-select.svg)](https://badge.fury.io/js/bootstrap-hardskilled-extend-select) [![](https://data.jsdelivr.com/v1/package/npm/bootstrap-hardskilled-extend-select/badge?style=rounded)](https://www.jsdelivr.com/package/npm/bootstrap-hardskilled-extend-select) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/hardskilled/bootstrap-hardskilled-extend-select/blob/master/LICENSE) [![dependences](https://david-dm.org/hardskilled/bootstrap-hardskilled-extend-select.svg)](https://david-dm.org/hardskilled/bootstrap-hardskilled-extend-select)
 
 ## [Demo and documentation](https://hardskilled.github.io/bootstrap-hardskilled-extend-select/docs/)
 
